@@ -1,6 +1,18 @@
 
+CREATE DATABASE JavaFlorist;
+
+CREATE TABLE [CUSTOMER](
+    [CUSTID] INT PRIMARY KEY IDENTITY,
+    [FNAME] VARCHAR(255) NOT NULL,
+    [LNAME] VARCHAR(255) NOT NULL,
+    [DOB] DATE NOT NULL,
+    [GENDER] CHAR NOT NULL,
+    [PNO] VARCHAR(15) NOT NULL,
+    [ADDRESS] TEXT NOT NULL
+);
+
 CREATE TABLE [BOUQUET](
-    [ID] int NOT NULL IDENTITY,
+    [BOUQUETID] int PRIMARY KEY IDENTITY,
     [NAME] VARCHAR(255) NOT NULL,
     [PRICE] FLOAT not NULL,
     [DESCRIPTION] TEXT NOT NULL,
@@ -18,3 +30,18 @@ INSERT INTO [BOUQUET] (NAME, PRICE, DESCRIPTION, IMG) VALUES
 ('Bonanza', 6500, 'A delightful bonanza of flowers. This beautiful arrangement is a true feast for the eyes, featuring a variety of colorful blooms.', 'img8.webp'),
 ('Bright Centerpiece', 7999, 'Bright and beautiful centerpiece for any occasion. This stunning arrangement is sure to be the focal point of any room and is perfect for adding a pop of color to your space.', 'img9.webp'),
 ('Bunch of 10 Mixed Roses', 2800, 'A bunch of 10 mixed roses for a charming gift. This lovely bouquet features a variety of colors, making it a perfect choice for expressing love and appreciation.', 'img10.webp');
+
+
+CREATE TABLE [OCCASION](
+    [OCCASIONID] INT PRIMARY KEY IDENTITY,
+    [MESSAGE] VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE [ORDER](
+    [ORDERID] INT PRIMARY KEY IDENTITY,
+    [CUSTID] INT NOT NULL FOREIGN KEY REFERENCES CUSTOMER(CUSTID),
+    [ORDERNAME] VARCHAR(255) NOT NULL,
+    [ORDERADDRESS] TEXT NOT NULL,
+    [ORDERPHONE] VARCHAR(15) NOT NULL,
+    [ORDERDATE] DATE NOT NULL,
+);
