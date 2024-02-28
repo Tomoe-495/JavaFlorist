@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="home-section">
+    <div class="mid-sect">
+        <p class="upper">Flower Arrangement</p>
+        <p class="mid">This Flower Shop<br/> has everything</p>
+        <button>Read More</button>
+    </div>
+</div>
+
+<div class="home-2">
+    <div class="first-sect">
+        <p class="first-heading">Wonderful gift</p>
+        <p class="second-heading">A PERFECT SPOT</p>
+        <p class="para">Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibe ndum auctor, nisi elit conse quat ipsu. Proin gravida nibh vel velit auctor ali quet. Aen ean sol lici tudin, lorem quis biben dum au.</p>
+        <button>Read More</button>
+    </div>
+    <div class="second-sect">
+
+    </div>
+</div>
+
+<script>
+
+    const sect = document.querySelector(".home-section");
+
+    const backgrounds = [
+        "../Resources/bg1.png",
+        "../Resources/bg2.png",
+        "../Resources/bg3.png"
+    ]
+
+    let i = 0;
+
+    sect.style.backgroundImage = `url(${backgrounds[i]})`;
+
+    setInterval(() => {
+
+        i = i >= backgrounds.length-1 ? 0 : i + 1;
+
+        sect.style.backgroundImage = `url(${backgrounds[i]})`;
+
+
+    }, 10000)
+
+
+</script>

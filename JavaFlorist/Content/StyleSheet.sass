@@ -1,0 +1,178 @@
+body
+    width: 100vw
+    overflow-x: hidden
+    margin: 0
+    padding: 0
+    font-family: poppins
+
+p, h1, h2
+    margin: 0
+    padding: 0
+    font-family: poppins
+
+nav
+    position: fixed
+    top: 0
+    left: 0
+    backdrop-filter: blur(5px)
+    width: 100vw
+    height: 70px
+    padding: 0 40px
+    display: flex
+    justify-content: space-between
+    align-items: center
+    @media (max-width: 768px)
+        padding: 0 15px
+        justify-content: center
+        background: rgba(0, 0, 0, 0.6)
+    .nav-logo
+        height: 70px
+    .items
+        display: flex
+        align-items: center
+        gap: 1em
+        color: #fff
+        .nav-item
+            text-decoration: none
+            color: #fff
+            position: relative
+            &:hover
+                text-decoration: underline
+        ion-icon
+            font-size: 1.5em
+    .ham
+        width: 25px
+        height: 20px
+        position: absolute
+        right: 15px
+        top: 25px
+        overflow: hidden
+        cursor: pointer
+        display: none
+        @media (max-width: 768px)
+            display: block
+        div
+            width: 100%
+            height: 3px
+            background: #fff
+            position: absolute
+            transition: all 250ms ease
+        .ham1
+            top: 0
+            left: 0
+        .ham2
+            top: 50%
+            left: 0
+            transform: translateY(-50%)
+        .ham3
+            bottom: 0
+            left: 0
+        &.active
+            .ham1
+                top: 50%
+                transform: translateY(-50%) rotateZ(45deg)
+            .ham2
+                left:-100%
+            .ham3
+                bottom: 50%
+                transform: translateY(50%) rotateZ(-45deg)
+
+@media (max-width: 768px)
+    .items
+        flex-direction: column
+        position: fixed
+        top: 70px
+        left: -100%
+        width: 100%
+        background: rgba(0, 0, 0, .6)
+        backdrop-filter: blur(5px)
+        gap: 2em
+        padding-bottom: 30px
+        transition: all 300ms linear
+        .nav-item
+            padding: 20px 0
+
+.home-section
+    width: 100vw
+    height: 100vh
+    background-color: rgba(0, 0, 0, .3)
+    background-blend-mode: overlay
+    background-size: cover
+    background-position: center
+    transition: background-image 1s ease
+    display: flex
+    justify-content: left
+    align-items: center
+    padding: 0 50px
+
+    .mid-sect
+        display: flex
+        flex-direction: column
+        align-items: flex-start
+        gap: 1em
+        color: #fff
+        @media (max-width: 768px)
+            width: 100vw
+            align-items: center
+            text-align: center
+        .upper
+            font-size: 3em
+            font-family: "Mr De haviland"
+        .mid
+            font-size: 3em
+        button
+            background: transparent
+            color: #fff
+            border: 1px solid #fff
+            padding: 10px 20px
+            transition: all 250ms linear
+            &:hover
+                background: rgba(255, 255, 255, .2)
+
+
+.home-2
+    background: #FFF0E9
+    width: 100vw
+    display: flex
+    padding: 80px 100px
+    gap: 2em
+    color: #454545
+    align-items: center
+    @media (max-width: 850px)
+        flex-direction: column
+    .first-sect
+        width: 50%
+        display: flex
+        flex-direction: column
+        gap: 1em
+        align-items: flex-start
+        background-image: url("../Resources/sect-bg.png")
+        background-repeat: no-repeat
+        background-position-x: right
+        @media (max-width: 850px)
+            width: 100%
+        .first-heading
+            font-family: "mr de haviland"
+            font-size: 4em
+        .second-heading
+            font-size: 3em
+            font-weight: 300
+        .para
+        
+        button
+            border: 1px solid #454545
+            background: transparent
+            padding: 20px 30px
+            transition: all 250ms ease
+            &:hover
+                background: #f2e0d8
+
+    .second-sect
+        width: 500px
+        height: 300px
+        background-image: url("../Resources/bg2.png")
+        background-size: cover
+        border-radius: 10px
+        filter: drop-shadow(5px 5px 3px rgba(0, 0, 0, .4))
+        @media (max-width: 850px)
+            width: 100%
