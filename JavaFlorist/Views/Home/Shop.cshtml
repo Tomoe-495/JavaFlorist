@@ -1,7 +1,33 @@
-﻿
+﻿@model IEnumerable<JavaFlorist.Models.BOUQUET>
 @{
     ViewBag.Title = "Shop";
 }
 
-<h2>Shop</h2>
+<div class="shop-sect">
 
+    <div class="shop-upper-sect">
+        <p>Shop</p>
+    </div>
+
+    <div class="shop-main-sect">
+
+        <p class="shop-heading">look around</p>
+        <hr />
+        <div class="products">
+            @foreach (var item in Model)
+            {
+                <div class="card" style="width: 16rem;">
+                    <img class="card-img-top" src="@item.IMG" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">@item.NAME</h5>
+                        <hr />
+                        <p class="card-text">@item.DESCRIPTION</p>
+                    </div>
+                </div>
+                // need to re-design this card
+            }
+        </div>
+
+    </div>
+
+</div>

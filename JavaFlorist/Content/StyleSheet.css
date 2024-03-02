@@ -282,6 +282,40 @@ nav .ham.active .ham3 {
   margin-top: 1em;
 }
 
+.shop-sect .shop-upper-sect {
+  width: 100vw;
+  height: 50vh;
+  background-image: url("../Resources/shop-bg.png");
+  background-position-y: center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.shop-sect .shop-upper-sect p {
+  color: #fff;
+  font-size: 5em;
+}
+.shop-sect .shop-main-sect {
+  padding: 50px 100px;
+}
+@media (max-width: 768) {
+  .shop-sect .shop-main-sect {
+    padding: 35px 40px;
+  }
+}
+.shop-sect .shop-main-sect .shop-heading {
+  text-align: center;
+  font-size: 1.7em;
+  margin-bottom: 30px;
+}
+.shop-sect .shop-main-sect .products {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  justify-content: center;
+}
+
 footer {
   background: #252525;
   width: 100vw;
