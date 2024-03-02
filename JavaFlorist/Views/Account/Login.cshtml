@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+}
+
+<div class="login-sect">
+    <div class="login-upper-sect">
+        <p>LOGIN</p>
+    </div>
+    <div class="login-form">
+        <p class="form-heading">Login</p>
+        @using(Html.BeginForm("Login", "Account", FormMethod.Post))
+        {
+            <div class="form-group col-md-4">
+                <label>Enter username:</label>
+                <input class="form-control" type="text" />
+            </div>
+        }
+    </div>
+</div>

@@ -14,6 +14,8 @@ nav
     position: fixed
     top: 0
     left: 0
+    z-index: 99
+    background: rgba(0, 0, 0, .1)
     backdrop-filter: blur(5px)
     width: 100vw
     height: 70px
@@ -30,15 +32,16 @@ nav
     .items
         display: flex
         align-items: center
-        gap: 1em
+        gap: 3em
         color: #fff
-        .nav-item
+        a
             text-decoration: none
             color: #fff
             position: relative
             &:hover
                 text-decoration: underline
         ion-icon
+            cursor: pointer
             font-size: 1.5em
     .ham
         width: 25px
@@ -89,7 +92,7 @@ nav
         gap: 2em
         padding-bottom: 30px
         transition: all 300ms linear
-        .nav-item
+        a
             padding: 20px 0
 
 .home-section
@@ -176,3 +179,41 @@ nav
         filter: drop-shadow(5px 5px 3px rgba(0, 0, 0, .4))
         @media (max-width: 850px)
             width: 100%
+
+
+.login-sect
+    .login-upper-sect
+        width: 100vw
+        height: 50vh
+        background-image: url("../Resources/login-bg.png")
+        background-position-y: bottom
+        background-size: cover
+        display: flex
+        justify-content: center
+        align-items: center
+        p
+            font-size: 5em
+            color: #fff
+
+    .login-form
+        padding: 50px 100px
+        @media (max-width:768px)
+            padding: 35px 40px
+        .form-heading
+            font-size: 3em
+            margin-bottom: .5em
+            @media (max-width:768px)
+                text-align: center
+
+footer
+    background: #252525
+    width: 100vw
+    color: rgb(200, 200, 200)
+    .footer-sect
+        height: 200px
+    .footer-footer
+        text-align: center
+        padding: 15px 0
+        color: rgb(150, 150, 150)
+        background: #050505
+        

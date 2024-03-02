@@ -6,17 +6,11 @@ using System.Web.Mvc;
 
 namespace JavaFlorist.Controllers
 {
-    public class HomeController : Controller
+    public class AccountController : Controller
     {
-        // GET: Home
-        public ActionResult Index()
+        // GET: Account
+        public ActionResult Login()
         {
-            return View();
-        }
-
-        public ActionResult Shop()
-        {
-
             return View();
         }
     }

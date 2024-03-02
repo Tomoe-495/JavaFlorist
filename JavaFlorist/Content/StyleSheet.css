@@ -16,6 +16,8 @@ nav {
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 99;
+  background: rgba(0, 0, 0, 0.1);
   -webkit-backdrop-filter: blur(5px);
           backdrop-filter: blur(5px);
   width: 100vw;
@@ -38,18 +40,19 @@ nav .nav-logo {
 nav .items {
   display: flex;
   align-items: center;
-  gap: 1em;
+  gap: 3em;
   color: #fff;
 }
-nav .items .nav-item {
+nav .items a {
   text-decoration: none;
   color: #fff;
   position: relative;
 }
-nav .items .nav-item:hover {
+nav .items a:hover {
   text-decoration: underline;
 }
 nav .items ion-icon {
+  cursor: pointer;
   font-size: 1.5em;
 }
 nav .ham {
@@ -113,7 +116,7 @@ nav .ham.active .ham3 {
     padding-bottom: 30px;
     transition: all 300ms linear;
   }
-  .items .nav-item {
+  .items a {
     padding: 20px 0;
   }
 }
@@ -220,4 +223,51 @@ nav .ham.active .ham3 {
   .home-2 .second-sect {
     width: 100%;
   }
+}
+
+.login-sect .login-upper-sect {
+  width: 100vw;
+  height: 50vh;
+  background-image: url("../Resources/login-bg.png");
+  background-position-y: bottom;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login-sect .login-upper-sect p {
+  font-size: 5em;
+  color: #fff;
+}
+.login-sect .login-form {
+  padding: 50px 100px;
+}
+@media (max-width: 768px) {
+  .login-sect .login-form {
+    padding: 35px 40px;
+  }
+}
+.login-sect .login-form .form-heading {
+  font-size: 3em;
+  margin-bottom: 0.5em;
+}
+@media (max-width: 768px) {
+  .login-sect .login-form .form-heading {
+    text-align: center;
+  }
+}
+
+footer {
+  background: #252525;
+  width: 100vw;
+  color: rgb(200, 200, 200);
+}
+footer .footer-sect {
+  height: 200px;
+}
+footer .footer-footer {
+  text-align: center;
+  padding: 15px 0;
+  color: rgb(150, 150, 150);
+  background: #050505;
 }/*# sourceMappingURL=StyleSheet.css.map */

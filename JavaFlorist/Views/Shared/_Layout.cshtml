@@ -16,12 +16,15 @@
     <nav>
 
         <img class="nav-logo" alt="logo" src="~/Resources/logo_white.png" />
+
         <div class="items">
-            @Html.ActionLink("Home", "Index", "Home", new { @class = "nav-item" })
-            @Html.ActionLink("Bouquet", "Index", "Home", new { @class = "nav-item" })
-            @Html.ActionLink("Login", "Index", "Home", new { @class = "nav-item" })
+            @Html.ActionLink("Home", "Index", "Home")
+            @Html.ActionLink("Bouquet", "Index", "Home")
+            @Html.ActionLink("Shop", "Index", "Home")
+            @Html.ActionLink("Login", "Login", "Account")
             <ion-icon name="cart"></ion-icon>
         </div>
+
         <div class="ham">
             <div class="ham1"></div>
             <div class="ham2"></div>
@@ -32,10 +35,12 @@
 
     <div class="body-content">
         @RenderBody()
-        @*<hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>*@
+            <div class="footer-sect">
+
+            </div>
+            <p class="footer-footer">&copy; @DateTime.Now.Year - JavaFlorist</p>
+        </footer>
     </div>
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
