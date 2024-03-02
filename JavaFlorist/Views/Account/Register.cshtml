@@ -1,0 +1,95 @@
+﻿@model JavaFlorist.Models.CUSTOMER
+@{
+    ViewBag.Title = "Register";
+}
+
+
+<div class="login-sect">
+
+    <div class="login-upper-sect">
+        <p>REGISTER</p>
+    </div>
+
+    <div class="login-form">
+        <p class="form-heading">Register</p>
+        @using (Html.BeginForm("Register", "Account", FormMethod.Post))
+        {
+
+            <div class="row">
+
+                <div class="form-group col-md-4">
+                    <label class="form-label">Enter First Name:</label>
+                    @Html.TextBoxFor(x => x.FNAME, new { @class = "form-control" })
+                    <p class="hint">Your first name will be used as the username when you login*</p>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label class="form-label">Enter Last Name:</label>
+                    @Html.TextBoxFor(x => x.LNAME, new { @class = "form-control" })
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="form-group col-md-4">
+                    <label class="form-label">Enter Password:</label>
+                    <input type="password" name="PASSWORD" class="form-control pass1" />
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label class="form-label">Confirm Password:</label>
+                    <input type="password" class="form-control pass2" />
+                </div>
+
+
+            </div>
+
+            <div class="form-group col-md-4">
+                <label class="form-label">Select date of birth:</label>
+                <input type="date" name="DOB" class="form-control" />
+            </div>
+
+            <div class="form-group col-md-4">
+                <label class="form-label">Select Gender:</label>
+                <select class="form-select" name="GENDER">
+                    <option value="Female">Female</option>
+                    <option value="Male" selected>Male</option>
+                </select>
+            </div>
+
+            <div class="form-group col-md-4">
+                <label class="form-label">Enter Phone Number:</label>
+                @Html.TextBoxFor(x => x.PNO, new { @class = "form-control", @type = "number" })
+            </div>
+
+            <div class="form-group col-md-4">
+                <label class="form-label">Enter Address:</label>
+                @Html.TextAreaFor(x=>x.ADDRESS, new {@class="form-control"})
+            </div>
+
+            <input type="submit" value="Register" class="btn form-btn" />
+        }
+
+    </div>
+
+</div>
+
+
+<script>
+
+    const pass1 = document.querySelector(".pass1");
+    const pass2 = document.querySelector(".pass2");
+
+    pass2.addEventListener("keyup", () => {
+        if (pass1.value !== pass2.value && pass1.value !== "") {
+            pass1.classList.add("border-danger");
+            pass2.classList.add("border-danger");
+        } else {
+            pass1.classList.remove("border-danger");
+            pass2.classList.remove("border-danger")
+        }
+    })
+
+
+</script>

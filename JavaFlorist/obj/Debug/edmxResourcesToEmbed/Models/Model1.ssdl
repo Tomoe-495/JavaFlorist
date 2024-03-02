@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="JavaFloristModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="BOUQUET">
+    <Key>
+      <PropertyRef Name="BOUQUETID" />
+    </Key>
+    <Property Name="BOUQUETID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="PRICE" Type="float" Nullable="false" />
+    <Property Name="DESCRIPTION" Type="text" Nullable="false" />
+    <Property Name="IMG" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CART">
+    <Key>
+      <PropertyRef Name="CARTID" />
+    </Key>
+    <Property Name="CARTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CUSTID" Type="int" Nullable="false" />
+    <Property Name="BOUQUETID" Type="int" Nullable="false" />
+    <Property Name="QUANTITY" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CUSTOMER">
+    <Key>
+      <PropertyRef Name="CUSTID" />
+    </Key>
+    <Property Name="CUSTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FNAME" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="LNAME" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="PASSWORD" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="DOB" Type="date" Nullable="false" />
+    <Property Name="GENDER" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="PNO" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="ADDRESS" Type="text" Nullable="false" />
+    <Property Name="ROLE" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="OCCASION">
+    <Key>
+      <PropertyRef Name="OCCASIONID" />
+    </Key>
+    <Property Name="OCCASIONID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MESSAGE" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ORDER">
+    <Key>
+      <PropertyRef Name="ORDERID" />
+    </Key>
+    <Property Name="ORDERID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CUSTID" Type="int" Nullable="false" />
+    <Property Name="OCCASIONID" Type="int" Nullable="false" />
+    <Property Name="ORDERNAME" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="ORDERADDRESS" Type="text" Nullable="false" />
+    <Property Name="ORDERPHONE" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="ORDERDATE" Type="date" Nullable="false" />
+    <Property Name="QUANTITY" Type="int" Nullable="false" />
+    <Property Name="TOTALPRICE" Type="float" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__CART__BOUQUETID__2F10007B">
+    <End Role="BOUQUET" Type="Self.BOUQUET" Multiplicity="1" />
+    <End Role="CART" Type="Self.CART" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BOUQUET">
+        <PropertyRef Name="BOUQUETID" />
+      </Principal>
+      <Dependent Role="CART">
+        <PropertyRef Name="BOUQUETID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CART__CUSTID__4AB81AF0">
+    <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="1" />
+    <End Role="CART" Type="Self.CART" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CUSTOMER">
+        <PropertyRef Name="CUSTID" />
+      </Principal>
+      <Dependent Role="CART">
+        <PropertyRef Name="CUSTID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ORDER__CUSTID__4BAC3F29">
+    <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="1" />
+    <End Role="ORDER" Type="Self.ORDER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CUSTOMER">
+        <PropertyRef Name="CUSTID" />
+      </Principal>
+      <Dependent Role="ORDER">
+        <PropertyRef Name="CUSTID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ORDER__OCCASIONI__35BCFE0A">
+    <End Role="OCCASION" Type="Self.OCCASION" Multiplicity="1" />
+    <End Role="ORDER" Type="Self.ORDER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OCCASION">
+        <PropertyRef Name="OCCASIONID" />
+      </Principal>
+      <Dependent Role="ORDER">
+        <PropertyRef Name="OCCASIONID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="JavaFloristModelStoreContainer">
+    <EntitySet Name="BOUQUET" EntityType="Self.BOUQUET" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CART" EntityType="Self.CART" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CUSTOMER" EntityType="Self.CUSTOMER" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OCCASION" EntityType="Self.OCCASION" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ORDER" EntityType="Self.ORDER" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__CART__BOUQUETID__2F10007B" Association="Self.FK__CART__BOUQUETID__2F10007B">
+      <End Role="BOUQUET" EntitySet="BOUQUET" />
+      <End Role="CART" EntitySet="CART" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CART__CUSTID__4AB81AF0" Association="Self.FK__CART__CUSTID__4AB81AF0">
+      <End Role="CUSTOMER" EntitySet="CUSTOMER" />
+      <End Role="CART" EntitySet="CART" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ORDER__CUSTID__4BAC3F29" Association="Self.FK__ORDER__CUSTID__4BAC3F29">
+      <End Role="CUSTOMER" EntitySet="CUSTOMER" />
+      <End Role="ORDER" EntitySet="ORDER" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ORDER__OCCASIONI__35BCFE0A" Association="Self.FK__ORDER__OCCASIONI__35BCFE0A">
+      <End Role="OCCASION" EntitySet="OCCASION" />
+      <End Role="ORDER" EntitySet="ORDER" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

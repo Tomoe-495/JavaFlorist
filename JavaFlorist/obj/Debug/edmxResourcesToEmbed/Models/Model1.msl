@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="JavaFloristModelStoreContainer" CdmEntityContainer="JavaFloristEntities">
+    <EntitySetMapping Name="BOUQUETs">
+      <EntityTypeMapping TypeName="JavaFloristModel.BOUQUET">
+        <MappingFragment StoreEntitySet="BOUQUET">
+          <ScalarProperty Name="BOUQUETID" ColumnName="BOUQUETID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="PRICE" ColumnName="PRICE" />
+          <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+          <ScalarProperty Name="IMG" ColumnName="IMG" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CARTs">
+      <EntityTypeMapping TypeName="JavaFloristModel.CART">
+        <MappingFragment StoreEntitySet="CART">
+          <ScalarProperty Name="CARTID" ColumnName="CARTID" />
+          <ScalarProperty Name="CUSTID" ColumnName="CUSTID" />
+          <ScalarProperty Name="BOUQUETID" ColumnName="BOUQUETID" />
+          <ScalarProperty Name="QUANTITY" ColumnName="QUANTITY" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CUSTOMERs">
+      <EntityTypeMapping TypeName="JavaFloristModel.CUSTOMER">
+        <MappingFragment StoreEntitySet="CUSTOMER">
+          <ScalarProperty Name="CUSTID" ColumnName="CUSTID" />
+          <ScalarProperty Name="FNAME" ColumnName="FNAME" />
+          <ScalarProperty Name="LNAME" ColumnName="LNAME" />
+          <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="GENDER" ColumnName="GENDER" />
+          <ScalarProperty Name="PNO" ColumnName="PNO" />
+          <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+          <ScalarProperty Name="ROLE" ColumnName="ROLE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OCCASIONs">
+      <EntityTypeMapping TypeName="JavaFloristModel.OCCASION">
+        <MappingFragment StoreEntitySet="OCCASION">
+          <ScalarProperty Name="OCCASIONID" ColumnName="OCCASIONID" />
+          <ScalarProperty Name="MESSAGE" ColumnName="MESSAGE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ORDERs">
+      <EntityTypeMapping TypeName="JavaFloristModel.ORDER">
+        <MappingFragment StoreEntitySet="ORDER">
+          <ScalarProperty Name="ORDERID" ColumnName="ORDERID" />
+          <ScalarProperty Name="CUSTID" ColumnName="CUSTID" />
+          <ScalarProperty Name="OCCASIONID" ColumnName="OCCASIONID" />
+          <ScalarProperty Name="ORDERNAME" ColumnName="ORDERNAME" />
+          <ScalarProperty Name="ORDERADDRESS" ColumnName="ORDERADDRESS" />
+          <ScalarProperty Name="ORDERPHONE" ColumnName="ORDERPHONE" />
+          <ScalarProperty Name="ORDERDATE" ColumnName="ORDERDATE" />
+          <ScalarProperty Name="QUANTITY" ColumnName="QUANTITY" />
+          <ScalarProperty Name="TOTALPRICE" ColumnName="TOTALPRICE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

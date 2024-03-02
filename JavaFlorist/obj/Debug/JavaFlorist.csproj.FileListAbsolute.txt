@@ -142,3 +142,7 @@ D:\Users\Administrator\Desktop\JavaFlorist\JavaFlorist\obj\Debug\JavaFlorist.csp
 D:\Users\Administrator\Desktop\JavaFlorist\JavaFlorist\obj\Debug\JavaFlorist.csproj.CopyComplete
 D:\Users\Administrator\Desktop\JavaFlorist\JavaFlorist\obj\Debug\JavaFlorist.dll
 D:\Users\Administrator\Desktop\JavaFlorist\JavaFlorist\obj\Debug\JavaFlorist.pdb
+D:\Users\Administrator\Desktop\JavaFlorist\JavaFlorist\bin\EntityFramework.dll
+D:\Users\Administrator\Desktop\JavaFlorist\JavaFlorist\bin\EntityFramework.SqlServer.dll
+D:\Users\Administrator\Desktop\JavaFlorist\JavaFlorist\bin\EntityFramework.xml
+D:\Users\Administrator\Desktop\JavaFlorist\JavaFlorist\bin\EntityFramework.SqlServer.xml

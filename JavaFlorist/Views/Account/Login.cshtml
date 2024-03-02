@@ -1,4 +1,4 @@
-﻿
+﻿@model JavaFlorist.Models.CUSTOMER
 @{
     ViewBag.Title = "Login";
 }
@@ -9,12 +9,25 @@
     </div>
     <div class="login-form">
         <p class="form-heading">Login</p>
-        @using(Html.BeginForm("Login", "Account", FormMethod.Post))
+        @using (Html.BeginForm("Login", "Account", FormMethod.Post))
         {
             <div class="form-group col-md-4">
-                <label>Enter username:</label>
-                <input class="form-control" type="text" />
+                <label class="form-label">Enter Username:</label>
+                @Html.TextBoxFor(x => x.FNAME, new { @class = "form-control" })
+                <p class="hint">your first name is the username*</p>
             </div>
+
+            <div class="form-group col-md-4">
+                <label class="form-label">Enter Password:</label>
+                @Html.PasswordFor(x => x.PASSWORD, new { @class = "form-control" })
+            </div>
+
+            <input type="submit" value="Login" class="btn form-btn" />
+
         }
+        <p class="register-btn">
+            Don't have an account?
+        @Html.ActionLink("register here", "Register", "Account")
+        </p>
     </div>
 </div>
