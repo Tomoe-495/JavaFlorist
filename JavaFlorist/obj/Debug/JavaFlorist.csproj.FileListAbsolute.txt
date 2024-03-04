@@ -146,3 +146,7 @@ D:\Users\Administrator\Desktop\JavaFlorist\JavaFlorist\bin\EntityFramework.dll
 D:\Users\Administrator\Desktop\JavaFlorist\JavaFlorist\bin\EntityFramework.SqlServer.dll
 D:\Users\Administrator\Desktop\JavaFlorist\JavaFlorist\bin\EntityFramework.xml
 D:\Users\Administrator\Desktop\JavaFlorist\JavaFlorist\bin\EntityFramework.SqlServer.xml
+C:\Users\Administrator\Documents\GitHub\JavaFlorist\JavaFlorist\bin\EntityFramework.dll
+C:\Users\Administrator\Documents\GitHub\JavaFlorist\JavaFlorist\bin\EntityFramework.SqlServer.dll
+C:\Users\Administrator\Documents\GitHub\JavaFlorist\JavaFlorist\bin\EntityFramework.xml
+C:\Users\Administrator\Documents\GitHub\JavaFlorist\JavaFlorist\bin\EntityFramework.SqlServer.xml

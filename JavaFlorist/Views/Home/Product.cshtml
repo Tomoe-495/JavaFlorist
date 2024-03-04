@@ -1,0 +1,38 @@
+﻿@model JavaFlorist.Models.BOUQUET
+@{
+    ViewBag.Title = "Product";
+}
+
+<div class="product-sect">
+
+    <div class="product-upper-sect">
+        <p>Product</p>
+    </div>
+
+    <div class="product-main-sect">
+
+        <div class="product-image">
+            <img src="@Model.IMG.Substring(2)" alt="@Model.NAME" />
+        </div>
+
+        <div class="product-details">
+            <p class="product-heading">@Model.NAME</p>
+            <p class="product-price">Rs. @Model.PRICE</p>
+            
+            @using(Html.BeginForm("Addcart", "Home", FormMethod.Post))
+            {
+                <input type="hidden" value="@Model.BOUQUETID" />
+                <div class="cart-add">
+                    <input type="number" value="1" class="cart-inp" min="1" max="10" />
+                    <input type="submit" value="ADD TO CART" class="cart-btn"  />
+                </div>
+            }
+
+            <p class="product-desc">
+                @Model.DESCRIPTION
+            </p>
+        </div>
+        
+    </div>
+
+</div>

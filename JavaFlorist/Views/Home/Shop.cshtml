@@ -16,15 +16,14 @@
         <div class="products">
             @foreach (var item in Model)
             {
-                <div class="card" style="width: 16rem;">
-                    <img class="card-img-top" src="@item.IMG" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">@item.NAME</h5>
-                        <hr />
-                        <p class="card-text">@item.DESCRIPTION</p>
+                <div class="prod-card">
+                    <div class="img-sect">
+                        <img src="@item.IMG" alt="@item.NAME" />
+                        @Html.ActionLink("View", "Product", "Home", new {id=item.BOUQUETID}, null)
                     </div>
+                    <p class="prod-name">@item.NAME</p>
+                    <p class="prod-price">Rs. @item.PRICE</p>
                 </div>
-                // need to re-design this card
             }
         </div>
 

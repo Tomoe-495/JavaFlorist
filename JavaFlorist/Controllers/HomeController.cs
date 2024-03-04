@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Web;
 using System.Web.Mvc;
 using JavaFlorist.Models;
@@ -23,6 +24,12 @@ namespace JavaFlorist.Controllers
 
 
             return View(_bouqs);
+        }
+
+        public ActionResult Product(int id)
+        {
+            BOUQUET _boug = _db.BOUQUETs.Find(id);
+            return View(_boug);
         }
     }
 }

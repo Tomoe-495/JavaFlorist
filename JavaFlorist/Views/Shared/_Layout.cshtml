@@ -19,7 +19,6 @@
 
         <div class="items">
             @Html.ActionLink("Home", "Index", "Home")
-            @Html.ActionLink("Bouquet", "Index", "Home")
             @Html.ActionLink("Shop", "Shop", "Home")
             @Html.ActionLink("Login", "Login", "Account")
             <ion-icon name="cart"></ion-icon>
@@ -37,7 +36,20 @@
         @RenderBody()
         <footer>
             <div class="footer-sect">
-
+                <div class="first-sect">
+                    <img alt="logo" src="~/Resources/logo_white.png" />
+                    <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitu din, lorem quistix bibendum auctoris</p>
+                </div>
+                <div class="sec-sect">
+                    <p class="work-heading">WORKING HOURS</p>
+                    <p class="work-item">Monday: 9AM - 9PM</p>
+                    <p class="work-item">Tuesday: 9AM - 9PM</p>
+                    <p class="work-item">Wednesday: 9AM - 9PM</p>
+                    <p class="work-item">Thursday: 9AM - 9PM</p>
+                    <p class="work-item">Friday: 9AM - 9PM</p>
+                    <p class="work-item">Saturday: 9AM - 9PM</p>
+                    <p class="work-item">Closed: 9AM - 9PM</p>
+                </div>
             </div>
             <p class="footer-footer">&copy; @DateTime.Now.Year - JavaFlorist</p>
         </footer>
@@ -61,6 +73,13 @@
             }
             turn = !turn;
         })
+
+        const logo = document.querySelector(".nav-logo");
+
+        logo.addEventListener("click", () => {
+            location.href = "/"
+        })
+
     </script>
 </body>
 </html>

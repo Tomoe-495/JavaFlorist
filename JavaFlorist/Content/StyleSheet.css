@@ -35,6 +35,7 @@ nav {
   }
 }
 nav .nav-logo {
+  cursor: pointer;
   height: 70px;
 }
 nav .items {
@@ -202,13 +203,15 @@ nav .ham.active .ham3 {
   font-size: 3em;
   font-weight: 300;
 }
-.home-2 .first-sect button {
+.home-2 .first-sect a {
+  text-decoration: none;
+  color: #454545;
   border: 1px solid #454545;
   background: transparent;
   padding: 20px 30px;
   transition: all 250ms ease;
 }
-.home-2 .first-sect button:hover {
+.home-2 .first-sect a:hover {
   background: #f2e0d8;
 }
 .home-2 .second-sect {
@@ -312,8 +315,128 @@ nav .ham.active .ham3 {
 .shop-sect .shop-main-sect .products {
   display: flex;
   flex-wrap: wrap;
-  gap: 1em;
+  gap: 2em;
   justify-content: center;
+}
+.shop-sect .shop-main-sect .products .prod-card {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  width: 20rem;
+  cursor: pointer;
+}
+.shop-sect .shop-main-sect .products .prod-card .img-sect {
+  width: 100%;
+  position: relative;
+}
+.shop-sect .shop-main-sect .products .prod-card .img-sect::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  transition: all 250ms ease;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.shop-sect .shop-main-sect .products .prod-card .img-sect:hover::after {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.shop-sect .shop-main-sect .products .prod-card .img-sect img {
+  width: 100%;
+}
+.shop-sect .shop-main-sect .products .prod-card .img-sect a {
+  z-index: 9;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  background: rgba(255, 255, 255, 0.9);
+  padding: 20px 30px;
+  text-decoration: none;
+  color: #454545;
+  font-weight: 600;
+  transition: all 250ms ease;
+  opacity: 0;
+  transition: opacity 250ms ease;
+}
+.shop-sect .shop-main-sect .products .prod-card .img-sect a:hover {
+  background: rgb(255, 255, 255);
+}
+.shop-sect .shop-main-sect .products .prod-card .img-sect:hover a {
+  opacity: 1;
+}
+.shop-sect .shop-main-sect .products .prod-card .prod-name {
+  margin: 1.5em 0 1em 0;
+  font-size: 1.4em;
+}
+.shop-sect .shop-main-sect .products .prod-card .prod-price {
+  color: #757575;
+  font-size: 0.8em;
+}
+
+.product-sect .product-upper-sect {
+  width: 100vw;
+  height: 50vh;
+  background-image: url("../Resources/prod-bg.png");
+  background-position-y: center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.product-sect .product-upper-sect p {
+  color: #fff;
+  font-size: 5em;
+}
+.product-sect .product-main-sect {
+  padding: 50px 100px;
+  background-color: #FFF0E9;
+  background-image: url("../Resources/sect-bg.png");
+  background-repeat: no-repeat;
+  background-position-x: right;
+  display: flex;
+  gap: 2em;
+}
+@media (max-width: 768px) {
+  .product-sect .product-main-sect {
+    padding: 35px 50px;
+    flex-direction: column;
+    gap: 1.5em;
+  }
+}
+.product-sect .product-main-sect .product-image img {
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.product-sect .product-main-sect .product-details {
+  padding: 20px 0;
+}
+.product-sect .product-main-sect .product-details .product-heading {
+  font-size: 3em;
+  font-weight: 200;
+}
+.product-sect .product-main-sect .product-details .product-price {
+  color: #757575;
+  font-size: 1.5em;
+  margin-bottom: 1em;
+}
+.product-sect .product-main-sect .product-details .cart-add {
+  display: flex;
+  gap: 1em;
+  margin-bottom: 20px;
+}
+.product-sect .product-main-sect .product-details .cart-add .cart-inp {
+  padding: 7px 0 7px 10px;
+  width: 3em;
+}
+.product-sect .product-main-sect .product-details .cart-add .cart-btn {
+  background: #252525;
+  border-radius: 0;
+  border: none;
+  color: #fff;
+  padding: 8px 20px;
 }
 
 footer {
@@ -322,7 +445,27 @@ footer {
   color: rgb(200, 200, 200);
 }
 footer .footer-sect {
-  height: 200px;
+  padding: 50px 200px;
+  display: flex;
+  justify-content: space-between;
+}
+@media (max-width: 600px) {
+  footer .footer-sect {
+    justify-content: center;
+    padding: 20px;
+  }
+}
+footer .footer-sect .first-sect {
+  width: 200px;
+}
+footer .footer-sect .first-sect img {
+  width: 150px;
+  margin-bottom: 10px;
+}
+footer .footer-sect .sec-sect .work-heading {
+  color: #fff;
+  font-size: 1.7em;
+  margin-bottom: 0.5em;
 }
 footer .footer-footer {
   text-align: center;

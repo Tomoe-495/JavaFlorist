@@ -28,6 +28,7 @@ nav
         justify-content: center
         background: rgba(0, 0, 0, 0.6)
     .nav-logo
+        cursor: pointer
         height: 70px
     .items
         display: flex
@@ -162,7 +163,9 @@ nav
             font-weight: 300
         .para
         
-        button
+        a
+            text-decoration: none
+            color: #454545
             border: 1px solid #454545
             background: transparent
             padding: 20px 30px
@@ -253,15 +256,137 @@ nav
         .products
             display: flex
             flex-wrap: wrap
-            gap: 1em
+            gap: 2em
             justify-content: center
+            
+            .prod-card
+                display: flex
+                flex-direction: column
+                text-align: center
+                align-items: center
+                width: 20rem
+                cursor: pointer
+                .img-sect
+                    width: 100%
+                    position: relative
+                    &::after
+                        content: ""
+                        width: 100%
+                        height: 100%
+                        background-color: rgba(0, 0, 0, 0)
+                        transition: all 250ms ease
+                        position: absolute
+                        left: 0
+                        top: 0
+                    &:hover::after
+                        background-color: rgba(0, 0, 0, .2)
+                    img
+                        width: 100%
+                    a
+                        z-index: 9
+                        position: absolute
+                        left: 50%
+                        top: 50%
+                        transform: translateX(-50%) translateY(-50%)
+                        background: rgba(255, 255, 255, 0.9)
+                        padding: 20px 30px
+                        text-decoration: none
+                        color: #454545
+                        font-weight: 600
+                        transition: all 250ms ease
+                        opacity: 0
+                        transition: opacity 250ms ease
+                        &:hover
+                            background: rgba(255, 255, 255, 1)   
+                    &:hover
+                        a
+                            opacity: 1
+                .prod-name
+                    margin: 1.5em 0 1em 0
+                    font-size: 1.4em
+                .prod-price
+                    color: #757575
+                    font-size: 0.8em
+
+.product-sect
+    .product-upper-sect
+        width: 100vw
+        height: 50vh
+        background-image: url("../Resources/prod-bg.png")
+        background-position-y: center
+        background-size: cover
+        display: flex
+        justify-content: center
+        align-items: center
+        p
+            color: #fff
+            font-size: 5em
+
+    .product-main-sect
+        padding: 50px 100px
+        background-color: #FFF0E9
+        background-image: url("../Resources/sect-bg.png")
+        background-repeat: no-repeat
+        background-position-x: right
+        display: flex
+        gap: 2em
+        @media (max-width:768px)
+            padding: 35px 50px
+            flex-direction: column
+            gap: 1.5em
+        
+        .product-image
+            img
+                border-radius: 10px
+                border: 1px solid rgba(0, 0, 0, .1)
+        
+        .product-details
+            padding: 20px 0
+            .product-heading
+                font-size: 3em
+                font-weight: 200
+            .product-price
+                color: #757575
+                font-size: 1.5em
+                margin-bottom: 1em
+            
+            .cart-add
+                display: flex
+                gap: 1em
+                margin-bottom: 20px
+                .cart-inp
+                    padding: 7px 0 7px 10px 
+                    width: 3em
+                .cart-btn
+                    background: #252525
+                    border-radius: 0
+                    border: none
+                    color: #fff
+                    padding: 8px 20px
+
 
 footer
     background: #252525
     width: 100vw
     color: rgb(200, 200, 200)
     .footer-sect
-        height: 200px
+        padding: 50px 200px
+        display: flex
+        justify-content: space-between
+        @media (max-width:600px)
+            justify-content: center
+            padding: 20px
+        .first-sect
+            width: 200px
+            img
+                width: 150px
+                margin-bottom: 10px
+        .sec-sect
+            .work-heading
+                color: #fff
+                font-size: 1.7em
+                margin-bottom: 0.5em
+
     .footer-footer
         text-align: center
         padding: 15px 0
