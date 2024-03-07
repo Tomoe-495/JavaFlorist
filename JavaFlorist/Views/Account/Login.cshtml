@@ -14,6 +14,7 @@
             <div class="form-group col-md-4">
                 <label class="form-label">Enter Username:</label>
                 @Html.TextBoxFor(x => x.FNAME, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x=>x.FNAME, "", new {@class="text-danger"})
                 <p class="hint">your first name is the username*</p>
             </div>
 

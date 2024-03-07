@@ -30,7 +30,7 @@
     <Property Name="FNAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="LNAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="PASSWORD" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="DOB" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="DOB" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="GENDER" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
     <Property Name="PNO" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="ADDRESS" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
@@ -110,7 +110,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="JavaFloristEntities" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="JavaFlEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="BOUQUETs" EntityType="Self.BOUQUET" />
     <EntitySet Name="CARTs" EntityType="Self.CART" />
     <EntitySet Name="CUSTOMERs" EntityType="Self.CUSTOMER" />

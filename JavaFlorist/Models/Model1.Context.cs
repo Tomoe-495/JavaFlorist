@@ -13,10 +13,10 @@ namespace JavaFlorist.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class JavaFloristEntities : DbContext
+    public partial class JavaFlEntities : DbContext
     {
-        public JavaFloristEntities()
-            : base("name=JavaFloristEntities")
+        public JavaFlEntities()
+            : base("name=JavaFlEntities")
         {
         }
     

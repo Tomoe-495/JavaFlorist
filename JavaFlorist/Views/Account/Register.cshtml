@@ -20,12 +20,14 @@
                 <div class="form-group col-md-4">
                     <label class="form-label">Enter First Name:</label>
                     @Html.TextBoxFor(x => x.FNAME, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x=>x.FNAME, "", new {@class="text-danger"})
                     <p class="hint">Your first name will be used as the username when you login*</p>
                 </div>
 
                 <div class="form-group col-md-4">
                     <label class="form-label">Enter Last Name:</label>
                     @Html.TextBoxFor(x => x.LNAME, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.LNAME, "", new { @class = "text-danger" })
                 </div>
 
             </div>
@@ -35,6 +37,7 @@
                 <div class="form-group col-md-4">
                     <label class="form-label">Enter Password:</label>
                     <input type="password" name="PASSWORD" class="form-control pass1" />
+                    @Html.ValidationMessageFor(x => x.PASSWORD, "", new { @class = "text-danger" })
                 </div>
 
                 <div class="form-group col-md-4">
@@ -48,24 +51,27 @@
             <div class="form-group col-md-4">
                 <label class="form-label">Select date of birth:</label>
                 <input type="date" name="DOB" class="form-control" />
+                @Html.ValidationMessageFor(x => x.DOB, "", new { @class = "text-danger" })
             </div>
 
             <div class="form-group col-md-4">
                 <label class="form-label">Select Gender:</label>
                 <select class="form-select" name="GENDER">
-                    <option value="Female">Female</option>
-                    <option value="Male" selected>Male</option>
+                    <option value="F">Female</option>
+                    <option value="M" selected>Male</option>
                 </select>
             </div>
 
             <div class="form-group col-md-4">
                 <label class="form-label">Enter Phone Number:</label>
                 @Html.TextBoxFor(x => x.PNO, new { @class = "form-control", @type = "number" })
+                @Html.ValidationMessageFor(x => x.PNO, "", new { @class = "text-danger" })
             </div>
 
             <div class="form-group col-md-4">
                 <label class="form-label">Enter Address:</label>
-                @Html.TextAreaFor(x=>x.ADDRESS, new {@class="form-control"})
+                @Html.TextAreaFor(x => x.ADDRESS, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.ADDRESS, "", new { @class = "text-danger" })
             </div>
 
             <input type="submit" value="Register" class="btn form-btn" />
@@ -80,14 +86,17 @@
 
     const pass1 = document.querySelector(".pass1");
     const pass2 = document.querySelector(".pass2");
+    const btn = document.querySelector(".form-btn");
 
     pass2.addEventListener("keyup", () => {
         if (pass1.value !== pass2.value && pass1.value !== "") {
             pass1.classList.add("border-danger");
             pass2.classList.add("border-danger");
+            btn.disabled = true;
         } else {
             pass1.classList.remove("border-danger");
             pass2.classList.remove("border-danger")
+            btn.disabled = false
         }
     })
 

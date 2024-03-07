@@ -27,7 +27,7 @@
     <Property Name="FNAME" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="LNAME" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="PASSWORD" Type="varchar" MaxLength="255" Nullable="false" />
-    <Property Name="DOB" Type="date" Nullable="false" />
+    <Property Name="DOB" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="GENDER" Type="char" MaxLength="1" Nullable="false" />
     <Property Name="PNO" Type="varchar" MaxLength="15" Nullable="false" />
     <Property Name="ADDRESS" Type="text" Nullable="false" />

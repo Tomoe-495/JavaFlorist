@@ -11,7 +11,7 @@ namespace JavaFlorist.Controllers
     public class HomeController : Controller
     {
         // GET: Home
-        private JavaFloristEntities _db = new JavaFloristEntities();
+        private JavaFlEntities _db = new JavaFlEntities();
         public ActionResult Index()
         {
             return View();
