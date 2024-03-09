@@ -137,7 +137,6 @@ D:\Users\Administrator\Desktop\JavaFlorist\JavaFlorist\bin\System.Web.Webpages.R
 D:\Users\Administrator\Desktop\JavaFlorist\JavaFlorist\bin\System.Web.Helpers.xml
 D:\Users\Administrator\Desktop\JavaFlorist\JavaFlorist\bin\System.Web.Mvc.xml
 D:\Users\Administrator\Desktop\JavaFlorist\JavaFlorist\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-D:\Users\Administrator\Desktop\JavaFlorist\JavaFlorist\obj\Debug\JavaFlorist.csproj.AssemblyReference.cache
 D:\Users\Administrator\Desktop\JavaFlorist\JavaFlorist\obj\Debug\JavaFlorist.csproj.CoreCompileInputs.cache
 D:\Users\Administrator\Desktop\JavaFlorist\JavaFlorist\obj\Debug\JavaFlorist.csproj.CopyComplete
 D:\Users\Administrator\Desktop\JavaFlorist\JavaFlorist\obj\Debug\JavaFlorist.dll
@@ -150,3 +149,6 @@ C:\Users\Administrator\Documents\GitHub\JavaFlorist\JavaFlorist\bin\EntityFramew
 C:\Users\Administrator\Documents\GitHub\JavaFlorist\JavaFlorist\bin\EntityFramework.SqlServer.dll
 C:\Users\Administrator\Documents\GitHub\JavaFlorist\JavaFlorist\bin\EntityFramework.xml
 C:\Users\Administrator\Documents\GitHub\JavaFlorist\JavaFlorist\bin\EntityFramework.SqlServer.xml
+D:\Users\Administrator\Desktop\JavaFlorist\JavaFlorist\obj\Debug\JavaFlorist.csproj.AssemblyReference.cache
+D:\Users\Administrator\Desktop\JavaFlorist\JavaFlorist\bin\Newtonsoft.Json.dll
+D:\Users\Administrator\Desktop\JavaFlorist\JavaFlorist\bin\Newtonsoft.Json.xml

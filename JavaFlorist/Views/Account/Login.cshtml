@@ -23,6 +23,8 @@
                 @Html.PasswordFor(x => x.PASSWORD, new { @class = "form-control" })
             </div>
 
+            <p class="text-danger">@ViewBag.errorMessage</p>
+
             <input type="submit" value="Login" class="btn form-btn" />
 
         }

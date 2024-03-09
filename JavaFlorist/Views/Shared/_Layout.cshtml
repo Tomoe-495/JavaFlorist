@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Mr+De+Haviland&display=swap" rel="stylesheet">
-    <link href="~/Content/StyleSheet.css" rel="stylesheet" />
+    <link href="~/Content/Style.css" rel="stylesheet" />
 </head>
 <body>
     <nav>
@@ -20,8 +20,18 @@
         <div class="items">
             @Html.ActionLink("Home", "Index", "Home")
             @Html.ActionLink("Shop", "Shop", "Home")
-            @Html.ActionLink("Login", "Login", "Account")
-            <ion-icon name="cart"></ion-icon>
+
+            @if (User.Identity.IsAuthenticated)
+            {
+                @Html.ActionLink("Signout", "Signout", "Account")
+            }
+            else
+            {
+                @Html.ActionLink("Login", "Login", "Account")
+            }
+            
+
+            <a href="~/Home/Cart"><ion-icon name="cart"></ion-icon></a>
         </div>
 
         <div class="ham">
@@ -51,7 +61,7 @@
                     <p class="work-item">Closed: 9AM - 9PM</p>
                 </div>
             </div>
-            <p class="footer-footer">&copy; @DateTime.Now.Year - JavaFlorist</p>
+            <p class="footer-footer">&copy; 2014 - @DateTime.Now.Year - JavaFlorist</p>
         </footer>
     </div>
 

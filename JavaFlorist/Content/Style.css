@@ -12,6 +12,16 @@ p, h1, h2 {
   font-family: poppins;
 }
 
+::-moz-selection {
+  color: #FFF0E9;
+  background: #454545;
+}
+
+::selection {
+  color: #FFF0E9;
+  background: #454545;
+}
+
 nav {
   position: fixed;
   top: 0;
@@ -301,6 +311,7 @@ nav .ham.active .ham3 {
 }
 .shop-sect .shop-main-sect {
   padding: 50px 100px;
+  background: #FFF0E9;
 }
 @media (max-width: 768) {
   .shop-sect .shop-main-sect {
@@ -325,6 +336,16 @@ nav .ham.active .ham3 {
   align-items: center;
   width: 20rem;
   cursor: pointer;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 0.5em;
+  overflow: hidden;
+  background: #fff;
+  filter: drop-shadow(3px 3px 5px rgba(0, 0, 0, 0.1));
+  transition: all 250ms ease;
+}
+.shop-sect .shop-main-sect .products .prod-card:hover {
+  filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0));
+  border: 1px solid rgba(0, 0, 0, 0.4);
 }
 .shop-sect .shop-main-sect .products .prod-card .img-sect {
   width: 100%;
@@ -351,6 +372,7 @@ nav .ham.active .ham3 {
   position: absolute;
   left: 50%;
   top: 50%;
+  border-radius: 5px;
   transform: translateX(-50%) translateY(-50%);
   background: rgba(255, 255, 255, 0.9);
   padding: 20px 30px;
@@ -368,12 +390,13 @@ nav .ham.active .ham3 {
   opacity: 1;
 }
 .shop-sect .shop-main-sect .products .prod-card .prod-name {
-  margin: 1.5em 0 1em 0;
+  margin: 0.5em 0;
   font-size: 1.4em;
 }
 .shop-sect .shop-main-sect .products .prod-card .prod-price {
-  color: #757575;
+  color: #555555;
   font-size: 0.8em;
+  margin-bottom: 0.3em;
 }
 
 .product-sect .product-upper-sect {
@@ -439,6 +462,33 @@ nav .ham.active .ham3 {
   padding: 8px 20px;
 }
 
+.cart-sect .cart-upper-sect {
+  width: 100vw;
+  height: 50vh;
+  background-image: url("../Resources/shop-bg.png");
+  background-position-y: center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cart-sect .cart-upper-sect p {
+  color: #fff;
+  font-size: 5em;
+}
+.cart-sect .cart-main-sect {
+  background: #FFF0E9;
+  padding: 50px 100px;
+  background-image: url("../Resources/sect-bg.png");
+  background-repeat: no-repeat;
+  background-position-x: right;
+}
+@media (max-width: 768px) {
+  .cart-sect .cart-main-sect {
+    padding: 35px 50px;
+  }
+}
+
 footer {
   background: #252525;
   width: 100vw;
@@ -472,4 +522,4 @@ footer .footer-footer {
   padding: 15px 0;
   color: rgb(150, 150, 150);
   background: #050505;
-}/*# sourceMappingURL=StyleSheet.css.map */
+}/*# sourceMappingURL=Style.css.map */

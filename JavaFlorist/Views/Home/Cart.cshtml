@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "Cart";
+}
+
+<div class="cart-sect">
+
+    <div class="cart-upper-sect">
+        <p>Cart</p>
+    </div>
+
+    <div class="cart-main-sect">
+        
+     @foreach (DynamicJsonObject item in ViewBag.cart)
+     {
+         
+          @item
+     }
+
+    </div>
+
+
+</div>
+

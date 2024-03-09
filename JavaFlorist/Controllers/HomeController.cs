@@ -5,13 +5,16 @@ using System.Runtime.InteropServices;
 using System.Web;
 using System.Web.Mvc;
 using JavaFlorist.Models;
+using Newtonsoft.Json.Linq;
 
 namespace JavaFlorist.Controllers
 {
+    //[Authorize]
     public class HomeController : Controller
     {
         // GET: Home
         private JavaFlEntities _db = new JavaFlEntities();
+       
         public ActionResult Index()
         {
             return View();
@@ -30,6 +33,54 @@ namespace JavaFlorist.Controllers
         {
             BOUQUET _boug = _db.BOUQUETs.Find(id);
             return View(_boug);
+        }
+
+        public ActionResult AddCart(int bouqId, int quant)
+        {
+            int userId = (int)TempData["id"];
+            var flag = _db.CARTs.Where(x =>x.CUSTID== userId && x.BOUQUETID==bouqId);
+
+            if (flag.Count()>0)
+            {
+                CART _cr = flag.Single();
+                _cr.QUANTITY ++;
+                _db.SaveChanges();
+            }
+            else
+            {
+                var cart = new CART() { CUSTID = userId, BOUQUETID = bouqId, QUANTITY = quant };
+                _db.CARTs.Add(cart);
+                _db.SaveChanges();
+
+            }
+
+
+            return RedirectToAction("Shop", "Home");
+        }
+
+        public ActionResult Cart()
+        {
+            //int userId = (int)TempData["id"];
+            int userId = 2;
+            var carts = _db.CARTs.Where(x => x.CUSTID == userId).Join(
+                    _db.BOUQUETs,
+                    cart => cart.BOUQUETID,
+                    bouq => bouq.BOUQUETID,
+                    (cart, bouq) => new
+                    {
+                        CARTID = cart.CARTID,
+                        NAME = bouq.NAME,
+                        PRICE = bouq.PRICE,
+                        IMG = bouq.IMG,
+                        QUANTITY = cart.QUANTITY
+                    }
+                ).ToList();
+
+
+            ViewBag.cart =carts ;
+
+
+             return View();
         }
     }
 }

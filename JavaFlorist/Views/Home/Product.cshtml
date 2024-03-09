@@ -18,13 +18,13 @@
         <div class="product-details">
             <p class="product-heading">@Model.NAME</p>
             <p class="product-price">Rs. @Model.PRICE</p>
-            
-            @using(Html.BeginForm("Addcart", "Home", FormMethod.Post))
+
+            @using (Html.BeginForm("AddCart", "Home", FormMethod.Post))
             {
-                <input type="hidden" value="@Model.BOUQUETID" />
+                <input type="hidden" value="@Model.BOUQUETID" name="bouqId" />
                 <div class="cart-add">
-                    <input type="number" value="1" class="cart-inp" min="1" max="10" />
-                    <input type="submit" value="ADD TO CART" class="cart-btn"  />
+                    <input type="number" value="1" name="quant" class="cart-inp" min="1" max="10" />
+                    <input type="submit" value="ADD TO CART" class="cart-btn" />
                 </div>
             }
 

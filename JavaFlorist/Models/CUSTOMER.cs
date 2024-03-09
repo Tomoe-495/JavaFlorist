@@ -30,6 +30,7 @@ namespace JavaFlorist.Models
         public string LNAME { get; set; }
 
         [Required(ErrorMessage = "Don't leave this field empty")]
+        [RegularExpression(@"^(?=.*[a-zA-Z0-9])(?=.*[^a-zA-Z0-9]).{8,}$", ErrorMessage ="The Password must have atleast 8 and AlphaNumeric and one non-AlphaNumeric character")]
         public string PASSWORD { get; set; }
 
         [Required(ErrorMessage = "Don't leave this field empty")]
