@@ -77,10 +77,26 @@ namespace JavaFlorist.Controllers
                 ).ToList();
 
 
-            ViewBag.cart =carts ;
+            List<CartItems> Carts = new List<CartItems>();
 
+            foreach(var item in carts)
+            {
+                Carts.Add(
+                        new CartItems { CARTID = item.CARTID, NAME = item.NAME, IMG = item.IMG, PRICE = item.PRICE, QUANTITY = item.QUANTITY}
+                    );
+            }
 
-             return View();
+            var _messages = _db.OCCASIONs.ToList();
+            ViewBag.messages = _messages;
+             return View(Carts);
+        }
+
+        public ActionResult DeleteCart(int id)
+        {
+            CART _cr = _db.CARTs.Find(id);
+            _db.CARTs.Remove(_cr);
+            _db.SaveChanges();
+            return RedirectToAction("Cart");
         }
     }
 }

@@ -404,11 +404,63 @@ nav
         background-image: url("../Resources/sect-bg.png")
         background-repeat: no-repeat
         background-position-x: right
-
-        
+        gap: 1.5em
+        display: flex
+        flex-direction: column
 
         @media (max-width:768px)
             padding: 35px 50px
+
+        .cart-item
+            border: 1px solid rgba(0, 0, 0, .2)
+            padding: 10px 20px
+            padding-block: 1em
+            border-radius: 5px
+            background-color: rgba(255, 255, 255, .1)
+            backdrop-filter: blur(2px)
+            display: flex
+            gap: 1em
+            @media (max-width:768px)
+                flex-direction: column
+            label
+                color: #555555
+            img
+                width: 200px
+                border: 1px solid rgba(0, 0, 0, .1)
+                border-radius: 5px
+                @media (max-width:768px)
+                    width: 100%
+            .cart-heading
+                font-size: 2em
+                color: #454545
+            .cart-price
+                color: #656565
+            .cart-message
+                margin-top: 0.5em
+            .cart-quantity
+                display: flex
+                gap: 1em
+                margin-top: 0.5em
+                align-items: center
+            a
+                color: #fff
+                margin-top: 20px
+                text-decoration: none
+                background: rgb(180, 50, 30)
+                padding: 10px 20px
+                border-radius: 10px
+        .empty-cart
+            width: 100%
+            display: flex
+            flex-direction: column
+            align-items: center
+            p
+                font-size: 2em
+                color: #454545
+                font-weight: 600
+                text-transform: uppercase
+                
+
 
 footer
     background: #252525

@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<JavaFlorist.Models.CartItems>
 @{
     ViewBag.Title = "Cart";
 }
@@ -10,15 +10,42 @@
     </div>
 
     <div class="cart-main-sect">
-        
-     @foreach (DynamicJsonObject item in ViewBag.cart)
-     {
-         
-          @item
-     }
+
+        @if (Model.Count() == 0)
+        {
+            <div class="empty-cart">
+
+                <p>nothing in cart</p>
+                @Html.ActionLink("Go Shop", "Shop", "Home")
+            </div>
+        }
+
+        @foreach (var item in Model)
+        {
+            <div class="cart-item">
+                <img src="@item.IMG" />
+                <div class="cart-detail">
+                    <p class="cart-heading">@item.NAME</p>
+                    <p class="cart-price">Rs. @item.PRICE</p>
+                    <div class="form-group cart-message">
+                        <label class="form-label">Select a message:</label>
+                        <select class="form-select">
+                            @foreach (var mes in ViewBag.messages)
+                            {
+                                <option>@mes.MESSAGE</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="form-group cart-quantity">
+                        <label class="form-label">Quantity:</label>
+                        <p>@item.QUANTITY</p>
+                    </div>
+                    @Html.ActionLink("Delete", "DeleteCart", "Home", new { id = item.CARTID }, null)
+                </div>@**cart details end *@
+            </div>
+        }
 
     </div>
 
 
 </div>
-

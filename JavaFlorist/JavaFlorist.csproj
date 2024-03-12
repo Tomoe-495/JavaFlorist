@@ -116,7 +116,7 @@
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Content\Site.css" />
-    <Content Include="Content\Style.css" />
+    <Content Include="Content\Styles.css" />
     <Content Include="Global.asax" />
     <Content Include="Models\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -149,6 +149,7 @@
     <Compile Include="Models\CART.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\CartItems.cs" />
     <Compile Include="Models\CUSTOMER.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

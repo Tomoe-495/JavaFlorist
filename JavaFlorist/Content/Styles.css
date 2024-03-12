@@ -482,11 +482,79 @@ nav .ham.active .ham3 {
   background-image: url("../Resources/sect-bg.png");
   background-repeat: no-repeat;
   background-position-x: right;
+  gap: 1.5em;
+  display: flex;
+  flex-direction: column;
 }
 @media (max-width: 768px) {
   .cart-sect .cart-main-sect {
     padding: 35px 50px;
   }
+}
+.cart-sect .cart-main-sect .cart-item {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 10px 20px;
+  padding-block: 1em;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.1);
+  -webkit-backdrop-filter: blur(2px);
+          backdrop-filter: blur(2px);
+  display: flex;
+  gap: 1em;
+}
+@media (max-width: 768px) {
+  .cart-sect .cart-main-sect .cart-item {
+    flex-direction: column;
+  }
+}
+.cart-sect .cart-main-sect .cart-item label {
+  color: #555555;
+}
+.cart-sect .cart-main-sect .cart-item img {
+  width: 200px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+@media (max-width: 768px) {
+  .cart-sect .cart-main-sect .cart-item img {
+    width: 100%;
+  }
+}
+.cart-sect .cart-main-sect .cart-item .cart-heading {
+  font-size: 2em;
+  color: #454545;
+}
+.cart-sect .cart-main-sect .cart-item .cart-price {
+  color: #656565;
+}
+.cart-sect .cart-main-sect .cart-item .cart-message {
+  margin-top: 0.5em;
+}
+.cart-sect .cart-main-sect .cart-item .cart-quantity {
+  display: flex;
+  gap: 1em;
+  margin-top: 0.5em;
+  align-items: center;
+}
+.cart-sect .cart-main-sect .cart-item a {
+  color: #fff;
+  margin-top: 20px;
+  text-decoration: none;
+  background: rgb(180, 50, 30);
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+.cart-sect .cart-main-sect .empty-cart {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.cart-sect .cart-main-sect .empty-cart p {
+  font-size: 2em;
+  color: #454545;
+  font-weight: 600;
+  text-transform: uppercase;
 }
 
 footer {
@@ -522,4 +590,4 @@ footer .footer-footer {
   padding: 15px 0;
   color: rgb(150, 150, 150);
   background: #050505;
-}/*# sourceMappingURL=Style.css.map */
+}/*# sourceMappingURL=Styles.css.map */
