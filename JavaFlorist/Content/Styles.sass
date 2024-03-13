@@ -424,12 +424,22 @@ nav
                 flex-direction: column
             label
                 color: #555555
-            img
-                width: 200px
-                border: 1px solid rgba(0, 0, 0, .1)
-                border-radius: 5px
-                @media (max-width:768px)
-                    width: 100%
+            .cart-img-sect
+                display: flex
+                flex-direction: column
+                input
+                    width: 200px
+                    background: #454545
+                    transition: all 250ms ease
+                    text-align: center
+                    &:hover
+                        background: #252525
+                img
+                    width: 200px
+                    border: 1px solid rgba(0, 0, 0, .1)
+                    border-radius: 5px
+                    @media (max-width:768px)
+                        width: 100%
             .cart-heading
                 font-size: 2em
                 color: #454545
@@ -460,7 +470,30 @@ nav
                 font-weight: 600
                 text-transform: uppercase
                 
+.order-main-sect
+    background: $theme
+    padding: 50px 100px
+    background-image: url("../Resources/sect-bg.png")
+    background-repeat: no-repeat
+    background-position-x: right
 
+    .form
+        position: relative
+        img
+            width: 200px
+            position: absolute
+            right: 0
+            border-radius: 5px
+            border: 1px solid rgba(0, 0, 0, .1)
+            @media (max-width:768px)
+                width: 100%
+        h5
+            margin-bottom: 1em
+        .total-price
+            font-weight: 600
+            margin: 0.5em 0 
+            color: #454545
+            font-size: 1.2em
 
 footer
     background: #252525

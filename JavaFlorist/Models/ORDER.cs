@@ -11,7 +11,8 @@ namespace JavaFlorist.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class ORDER
     {
         public int ORDERID { get; set; }
@@ -20,6 +21,7 @@ namespace JavaFlorist.Models
         public string ORDERNAME { get; set; }
         public string ORDERADDRESS { get; set; }
         public string ORDERPHONE { get; set; }
+        [Required(ErrorMessage ="Please select a date*")]
         public System.DateTime ORDERDATE { get; set; }
         public int QUANTITY { get; set; }
         public double TOTALPRICE { get; set; }

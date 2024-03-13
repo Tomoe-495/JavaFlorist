@@ -22,17 +22,24 @@
 
         @foreach (var item in Model)
         {
+                using(Html.BeginForm("PlaceOrder", "Home", FormMethod.Post))
+                {
             <div class="cart-item">
-                <img src="@item.IMG" />
+
+                <div class="cart-img-sect">
+                    <img src="@item.IMG" />
+                    <input name="id" value="@item.CARTID" type="hidden" />
+                    <input type="submit" value="Place Order" class="btn form-btn" />
+                </div>
                 <div class="cart-detail">
                     <p class="cart-heading">@item.NAME</p>
                     <p class="cart-price">Rs. @item.PRICE</p>
                     <div class="form-group cart-message">
                         <label class="form-label">Select a message:</label>
-                        <select class="form-select">
+                        <select class="form-select" name="MesId">
                             @foreach (var mes in ViewBag.messages)
                             {
-                                <option>@mes.MESSAGE</option>
+                                <option value="@mes.OCCASIONID">@mes.MESSAGE</option>
                             }
                         </select>
                     </div>
@@ -43,6 +50,7 @@
                     @Html.ActionLink("Delete", "DeleteCart", "Home", new { id = item.CARTID }, null)
                 </div>@**cart details end *@
             </div>
+                }
         }
 
     </div>

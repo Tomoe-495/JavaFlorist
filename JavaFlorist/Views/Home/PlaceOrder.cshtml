@@ -1,0 +1,70 @@
+﻿@model JavaFlorist.Models.CartItems
+@{
+    ViewBag.Title = "PlaceOrder";
+}
+
+<div class="cart-sect">
+
+    <div class="cart-upper-sect">
+        <p>Place Order</p>
+    </div>
+
+    <div class="order-main-sect">
+        <div class="form">
+
+            @using (Html.BeginForm("Order", "Home", FormMethod.Post))
+            {
+                <img src="@Model.IMG.Substring(2)" />
+                <h5 class="form-heading">@Model.NAME</h5>
+                <div class="form-group col-md-6">
+                    <label class="form-label">Phone: (optional)</label>
+                    <input name="ORDERPHONE" type="number" placeholder="@ViewBag.user.PNO" class="form-control" />
+                </div>
+                <div class="form-group col-md-6">
+                    <label class="form-label">Address (optional)</label>
+                    <textarea class="form-control" name="ORDERADDRESS" placeholder="@ViewBag.user.ADDRESS"></textarea>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label class="form-label">Order Date:</label>
+                    <input type="date" name="ORDERDATE" class="form-control" data-date/>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label>Enter Visa Card Details</label>
+                    <input class="form-control" maxlength="8" data-card />
+                </div>
+
+                <p class="total-price">Total Price: Rs. @ViewBag.price</p>
+
+                <input type="hidden" value="@Model.CARTID" name="id" />
+                <input type="hidden" value="@ViewBag.mesId" name="MesId" />
+                <input type="submit" value="Place Order" class="btn form-btn" data-submit />
+            }
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+    const btn = document.querySelector("[data-submit]");
+    const card = document.querySelector("[data-card]");
+    const date = document.querySelector("[data-date]");
+
+    if (card.value.length < 8) {
+        btn.disabled = true;
+    }
+
+    card.addEventListener("keyup", () => {
+        if (card.value.length < 8) {
+            btn.disabled = true;
+            card.classList.add("border-danger");
+        } else if (card.value.length == 8 && /^\d+$/.test(card.value) && Date.parse(date.value)) {
+            btn.disabled = false;
+            card.classList.remove("border-danger");
+        }
+    })
+
+</script>

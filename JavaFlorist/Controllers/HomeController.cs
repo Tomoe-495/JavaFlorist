@@ -9,7 +9,7 @@ using Newtonsoft.Json.Linq;
 
 namespace JavaFlorist.Controllers
 {
-    //[Authorize]
+    [Authorize]
     public class HomeController : Controller
     {
         // GET: Home
@@ -60,8 +60,7 @@ namespace JavaFlorist.Controllers
 
         public ActionResult Cart()
         {
-            //int userId = (int)TempData["id"];
-            int userId = 2;
+            int userId = (int)TempData["id"];
             var carts = _db.CARTs.Where(x => x.CUSTID == userId).Join(
                     _db.BOUQUETs,
                     cart => cart.BOUQUETID,
@@ -97,6 +96,63 @@ namespace JavaFlorist.Controllers
             _db.CARTs.Remove(_cr);
             _db.SaveChanges();
             return RedirectToAction("Cart");
+        }
+
+        public ActionResult PlaceOrder(int id, int MesId)
+        {
+            var carts = _db.CARTs.Where(x => x.CARTID == id).Join(
+                    _db.BOUQUETs,
+                    cart => cart.BOUQUETID,
+                    bouq => bouq.BOUQUETID,
+                    (cart, bouq) => new
+                    {
+                        CARTID = cart.CARTID,
+                        NAME = bouq.NAME,
+                        PRICE = bouq.PRICE,
+                        IMG = bouq.IMG,
+                        QUANTITY = cart.QUANTITY
+                    }
+                ).Single();
+
+            CartItems _cr = new CartItems { CARTID = carts.CARTID, IMG = carts.IMG, NAME = carts.NAME, PRICE = carts.PRICE, QUANTITY = carts.QUANTITY };
+
+            //int userId = (int)TempData["id"];
+            int userId = 1;
+
+            ViewBag.user = _db.CUSTOMERs.Find(userId);
+            ViewBag.mesId = MesId;
+            ViewBag.price = _cr.QUANTITY * _cr.PRICE;
+
+            return View(_cr);
+        }
+
+        [HttpPost]
+        public ActionResult Order(ORDER ord, int id, int MesId)
+        {
+            int userId = (int)TempData["id"];
+            var user = _db.CUSTOMERs.Find(userId);
+            var cart = _db.CARTs.Find(id);
+            var bouq = _db.BOUQUETs.Find(cart.BOUQUETID);
+
+            ord.CUSTID = userId;
+            ord.OCCASIONID = MesId;
+            ord.ORDERNAME = bouq.NAME;
+            ord.ORDERADDRESS = ord.ORDERADDRESS == null ? user.ADDRESS : ord.ORDERADDRESS;
+            ord.ORDERPHONE = ord.ORDERPHONE == null ? user.PNO : ord.ORDERPHONE;
+            ord.QUANTITY = cart.QUANTITY;
+            ord.TOTALPRICE = cart.QUANTITY * bouq.PRICE;
+
+            _db.ORDERs.Add(ord);
+            _db.CARTs.Remove(cart);
+            _db.SaveChanges();
+
+            return RedirectToAction("Cart");
+        }
+
+        public ActionResult OrderList()
+        {
+            var orders = _db.ORDERs.ToList();
+            return View(orders);
         }
     }
 }

@@ -152,3 +152,5 @@ C:\Users\Administrator\Documents\GitHub\JavaFlorist\JavaFlorist\bin\EntityFramew
 D:\Users\Administrator\Desktop\JavaFlorist\JavaFlorist\obj\Debug\JavaFlorist.csproj.AssemblyReference.cache
 D:\Users\Administrator\Desktop\JavaFlorist\JavaFlorist\bin\Newtonsoft.Json.dll
 D:\Users\Administrator\Desktop\JavaFlorist\JavaFlorist\bin\Newtonsoft.Json.xml
+C:\Users\Administrator\Documents\GitHub\JavaFlorist\JavaFlorist\bin\Newtonsoft.Json.dll
+C:\Users\Administrator\Documents\GitHub\JavaFlorist\JavaFlorist\bin\Newtonsoft.Json.xml

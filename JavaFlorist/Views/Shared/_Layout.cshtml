@@ -23,6 +23,7 @@
 
             @if (User.Identity.IsAuthenticated)
             {
+                @Html.ActionLink("My Orders", "OrderList", "Home")
                 @Html.ActionLink("Signout", "Signout", "Account")
             }
             else
