@@ -152,6 +152,22 @@ namespace JavaFlorist.Controllers
         public ActionResult OrderList()
         {
             var orders = _db.ORDERs.ToList();
+
+            TimeSpan ninePM = new TimeSpan(21, 0, 0); // represents 9 PM;
+
+            foreach(var item in orders)
+            {
+                if(item.ORDERDATE.TimeOfDay > ninePM)
+                {
+                    item.ORDERDATE.AddDays(1);
+                    item.ORDERDATE = new DateTime(item.ORDERDATE.Year, item.ORDERDATE.Month, item.ORDERDATE.Day, 13, 0, 0);
+                }
+                else
+                {
+                    item.ORDERDATE = item.ORDERDATE.AddHours(5.0);
+                }
+            }
+
             return View(orders);
         }
     }
