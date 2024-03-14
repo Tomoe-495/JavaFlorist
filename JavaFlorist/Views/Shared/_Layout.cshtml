@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@{ 
+    ViewBag.role = Session["role"];
+}
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -23,7 +26,10 @@
 
             @if (User.Identity.IsAuthenticated)
             {
-                @Html.ActionLink("My Orders", "OrderList", "Home")
+                if(ViewBag.role == "Customer")
+                {
+                    @Html.ActionLink("My Orders", "OrderList", "Home")
+                }
                 @Html.ActionLink("Signout", "Signout", "Account")
             }
             else

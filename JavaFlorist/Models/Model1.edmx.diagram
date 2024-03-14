@@ -4,16 +4,17 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="eb183e88570148af9c30e44e36fac850" Name="Diagram1">
-        <EntityTypeShape EntityType="JavaFloristModel.BOUQUET" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="JavaFloristModel.CART" Width="1.5" PointX="3" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="JavaFloristModel.CUSTOMER" Width="1.5" PointX="0.75" PointY="4.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="JavaFloristModel.OCCASION" Width="1.5" PointX="3.75" PointY="2" IsExpanded="true" />
-        <EntityTypeShape EntityType="JavaFloristModel.ORDER" Width="1.5" PointX="6" PointY="4.25" IsExpanded="true" />
+      <Diagram DiagramId="449d1836aaef45f892b5ac5f2aa47b63" Name="Diagram1">
+        <EntityTypeShape EntityType="JavaFloristModel.BOUQUET" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="JavaFloristModel.CART" Width="1.5" PointX="3" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="JavaFloristModel.CUSTOMER" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JavaFloristModel.OCCASION" Width="1.5" PointX="3.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="JavaFloristModel.ORDER" Width="1.5" PointX="6" PointY="4.5" IsExpanded="true" />
         <AssociationConnector Association="JavaFloristModel.FK__CART__BOUQUETID__2F10007B" ManuallyRouted="false" />
+        <AssociationConnector Association="JavaFloristModel.FK__ORDER__BOUQUETID__628FA481" ManuallyRouted="false" />
         <AssociationConnector Association="JavaFloristModel.FK__CART__CUSTID__4AB81AF0" ManuallyRouted="false" />
-        <AssociationConnector Association="JavaFloristModel.FK__ORDER__CUSTID__4BAC3F29" ManuallyRouted="false" />
-        <AssociationConnector Association="JavaFloristModel.FK__ORDER__OCCASIONI__35BCFE0A" ManuallyRouted="false" />
+        <AssociationConnector Association="JavaFloristModel.FK__ORDER__CUSTID__619B8048" ManuallyRouted="false" />
+        <AssociationConnector Association="JavaFloristModel.FK__ORDER__OCCASIONI__60A75C0F" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

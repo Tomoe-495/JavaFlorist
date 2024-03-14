@@ -47,6 +47,7 @@
     <Property Name="ORDERID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="CUSTID" Type="int" Nullable="false" />
     <Property Name="OCCASIONID" Type="int" Nullable="false" />
+    <Property Name="BOUQUETID" Type="int" Nullable="false" />
     <Property Name="ORDERNAME" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="ORDERADDRESS" Type="text" Nullable="false" />
     <Property Name="ORDERPHONE" Type="varchar" MaxLength="15" Nullable="false" />
@@ -78,7 +79,19 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__ORDER__CUSTID__4BAC3F29">
+  <Association Name="FK__ORDER__BOUQUETID__628FA481">
+    <End Role="BOUQUET" Type="Self.BOUQUET" Multiplicity="1" />
+    <End Role="ORDER" Type="Self.ORDER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BOUQUET">
+        <PropertyRef Name="BOUQUETID" />
+      </Principal>
+      <Dependent Role="ORDER">
+        <PropertyRef Name="BOUQUETID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ORDER__CUSTID__619B8048">
     <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="1" />
     <End Role="ORDER" Type="Self.ORDER" Multiplicity="*" />
     <ReferentialConstraint>
@@ -90,7 +103,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__ORDER__OCCASIONI__35BCFE0A">
+  <Association Name="FK__ORDER__OCCASIONI__60A75C0F">
     <End Role="OCCASION" Type="Self.OCCASION" Multiplicity="1" />
     <End Role="ORDER" Type="Self.ORDER" Multiplicity="*" />
     <ReferentialConstraint>
@@ -116,11 +129,15 @@
       <End Role="CUSTOMER" EntitySet="CUSTOMER" />
       <End Role="CART" EntitySet="CART" />
     </AssociationSet>
-    <AssociationSet Name="FK__ORDER__CUSTID__4BAC3F29" Association="Self.FK__ORDER__CUSTID__4BAC3F29">
+    <AssociationSet Name="FK__ORDER__BOUQUETID__628FA481" Association="Self.FK__ORDER__BOUQUETID__628FA481">
+      <End Role="BOUQUET" EntitySet="BOUQUET" />
+      <End Role="ORDER" EntitySet="ORDER" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ORDER__CUSTID__619B8048" Association="Self.FK__ORDER__CUSTID__619B8048">
       <End Role="CUSTOMER" EntitySet="CUSTOMER" />
       <End Role="ORDER" EntitySet="ORDER" />
     </AssociationSet>
-    <AssociationSet Name="FK__ORDER__OCCASIONI__35BCFE0A" Association="Self.FK__ORDER__OCCASIONI__35BCFE0A">
+    <AssociationSet Name="FK__ORDER__OCCASIONI__60A75C0F" Association="Self.FK__ORDER__OCCASIONI__60A75C0F">
       <End Role="OCCASION" EntitySet="OCCASION" />
       <End Role="ORDER" EntitySet="ORDER" />
     </AssociationSet>

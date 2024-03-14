@@ -13,7 +13,7 @@ namespace JavaFlorist.Controllers
     public class HomeController : Controller
     {
         // GET: Home
-        private JavaFlEntities _db = new JavaFlEntities();
+        private JavaFloristEntities _db = new JavaFloristEntities();
        
         public ActionResult Index()
         {
@@ -37,7 +37,7 @@ namespace JavaFlorist.Controllers
 
         public ActionResult AddCart(int bouqId, int quant)
         {
-            int userId = (int)TempData["id"];
+            int userId = (int)Session["id"];
             var flag = _db.CARTs.Where(x =>x.CUSTID== userId && x.BOUQUETID==bouqId);
 
             if (flag.Count()>0)
@@ -60,7 +60,7 @@ namespace JavaFlorist.Controllers
 
         public ActionResult Cart()
         {
-            int userId = (int)TempData["id"];
+            int userId = (int)Session["id"];
             var carts = _db.CARTs.Where(x => x.CUSTID == userId).Join(
                     _db.BOUQUETs,
                     cart => cart.BOUQUETID,
@@ -116,8 +116,7 @@ namespace JavaFlorist.Controllers
 
             CartItems _cr = new CartItems { CARTID = carts.CARTID, IMG = carts.IMG, NAME = carts.NAME, PRICE = carts.PRICE, QUANTITY = carts.QUANTITY };
 
-            //int userId = (int)TempData["id"];
-            int userId = 1;
+            int userId = (int)Session["id"];
 
             ViewBag.user = _db.CUSTOMERs.Find(userId);
             ViewBag.mesId = MesId;
@@ -129,7 +128,7 @@ namespace JavaFlorist.Controllers
         [HttpPost]
         public ActionResult Order(ORDER ord, int id, int MesId)
         {
-            int userId = (int)TempData["id"];
+            int userId = (int)Session["id"];
             var user = _db.CUSTOMERs.Find(userId);
             var cart = _db.CARTs.Find(id);
             var bouq = _db.BOUQUETs.Find(cart.BOUQUETID);
@@ -141,31 +140,54 @@ namespace JavaFlorist.Controllers
             ord.ORDERPHONE = ord.ORDERPHONE == null ? user.PNO : ord.ORDERPHONE;
             ord.QUANTITY = cart.QUANTITY;
             ord.TOTALPRICE = cart.QUANTITY * bouq.PRICE;
+            ord.BOUQUETID = bouq.BOUQUETID;
 
             _db.ORDERs.Add(ord);
             _db.CARTs.Remove(cart);
             _db.SaveChanges();
 
-            return RedirectToAction("Cart");
+            return RedirectToAction("OrderList");
         }
 
         public ActionResult OrderList()
         {
-            var orders = _db.ORDERs.ToList();
+            int userId = (int)Session["id"];
 
-            TimeSpan ninePM = new TimeSpan(21, 0, 0); // represents 9 PM;
+            var ords = _db.ORDERs.Where(x => x.CUSTID == userId).Join(
+                _db.BOUQUETs,
+                ord => ord.BOUQUETID,
+                bouq => bouq.BOUQUETID,
+                (ord, bouq) => new
+                {
+                    ORDERID = ord.ORDERID,
+                    NAME = bouq.NAME,
+                    ADDRESS = ord.ORDERADDRESS,
+                    PHONE = ord.ORDERPHONE,
+                    DATE = ord.ORDERDATE,
+                    QUANTITY = ord.QUANTITY,
+                    TOTALPRICE = ord.TOTALPRICE,
+                    IMG = bouq.IMG,
+                    id = ord.OCCASIONID
+                }
+            ).ToList();
 
-            foreach(var item in orders)
+            var orders = new List<OrderItem>();
+
+            foreach(var item in ords)
             {
-                if(item.ORDERDATE.TimeOfDay > ninePM)
+                var ord = new OrderItem
                 {
-                    item.ORDERDATE.AddDays(1);
-                    item.ORDERDATE = new DateTime(item.ORDERDATE.Year, item.ORDERDATE.Month, item.ORDERDATE.Day, 13, 0, 0);
-                }
-                else
-                {
-                    item.ORDERDATE = item.ORDERDATE.AddHours(5.0);
-                }
+                    ORDERID = item.ORDERID,
+                    ADDRESS = item.ADDRESS,
+                    DATE = item.DATE,
+                    IMG = item.IMG,
+                    NAME = item.NAME,
+                    PHONE = item.PHONE,
+                    QUANTITY = item.QUANTITY,
+                    TOTALPRICE = item.TOTALPRICE
+                };
+                ord.MESSAGE = _db.OCCASIONs.Find(item.id).MESSAGE;
+                orders.Add(ord);
             }
 
             return View(orders);

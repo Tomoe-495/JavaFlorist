@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="JavaFloristModelStoreContainer" CdmEntityContainer="JavaFlEntities">
+  <EntityContainerMapping StorageEntityContainer="JavaFloristModelStoreContainer" CdmEntityContainer="JavaFloristEntities">
     <EntitySetMapping Name="BOUQUETs">
       <EntityTypeMapping TypeName="JavaFloristModel.BOUQUET">
         <MappingFragment StoreEntitySet="BOUQUET">
@@ -51,6 +51,7 @@
           <ScalarProperty Name="ORDERID" ColumnName="ORDERID" />
           <ScalarProperty Name="CUSTID" ColumnName="CUSTID" />
           <ScalarProperty Name="OCCASIONID" ColumnName="OCCASIONID" />
+          <ScalarProperty Name="BOUQUETID" ColumnName="BOUQUETID" />
           <ScalarProperty Name="ORDERNAME" ColumnName="ORDERNAME" />
           <ScalarProperty Name="ORDERADDRESS" ColumnName="ORDERADDRESS" />
           <ScalarProperty Name="ORDERPHONE" ColumnName="ORDERPHONE" />

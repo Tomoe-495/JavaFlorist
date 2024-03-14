@@ -1,4 +1,4 @@
-﻿@model IEnumerable<JavaFlorist.Models.ORDER>
+﻿@model IEnumerable<JavaFlorist.Models.OrderItem>
 @{
     ViewBag.Title = "OrderList";
 }
@@ -10,6 +10,34 @@
     </div>
 
     <div class="order-main-sect">
+
+        @if (Model.Count() == 0)
+        {
+            <div class="empty-cart">
+
+                <p>You Haven't ordered anything yet</p>
+                @Html.ActionLink("Go Shop", "Shop", "Home")
+            </div>
+        }
+
+        @foreach(var item in Model)
+            {
+                <div class="order-item">
+                    <img src="@item.IMG" />
+                    <div class="order-details">
+                        <p class="order-name">@item.NAME</p>
+                        <p class="order-price">Total Price: Rs. @item.TOTALPRICE</p>
+                        <p class="order-quantity">Quantity: @item.QUANTITY</p>
+                        <div class="order-message">
+                            <p>@item.MESSAGE</p>
+                        </div>
+                        <hr />
+                        <p class="order-phone ">Phone: @item.PHONE</p>
+                        <p class="order-address">Shipping to: @item.ADDRESS</p>
+                        <p class="hint text-success border border-1">if you ordered before 5:00 PM, you'll receive it on 5 hours prior<br />else, you'll receive it the next day at around noon</p>
+                    </div>
+                </div>
+            }
 
     </div>
 

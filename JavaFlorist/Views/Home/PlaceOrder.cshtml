@@ -27,12 +27,23 @@
 
                 <div class="form-group col-md-6">
                     <label class="form-label">Order Date:</label>
-                    <input type="date" name="ORDERDATE" class="form-control" data-date/>
+                    <input type="date" name="ORDERDATE" class="form-control" data-date />
                 </div>
 
                 <div class="form-group col-md-6">
-                    <label>Enter Visa Card Details</label>
-                    <input class="form-control" maxlength="8" data-card />
+                    <label class="form-label">Enter Visa Card Details</label>
+                    <input class="form-control col-md-3" placeholder="xxxx-xxxx-xxxx-xxxx" maxlength="19" data-card />
+                    <div class="row">
+                        <div class="form-group col-md-3">
+                            <label class="form-label">CVV:</label>
+                            <input class="form-control" placeholder="xxx" maxlength="3" data-cvv />
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label class="form-label">expiry date:</label>
+                            <input placeholder="x/xx" class="form-control" maxlength="4" data-exp />
+                        </div>
+
+                    </div>
                 </div>
 
                 <p class="total-price">Total Price: Rs. @ViewBag.price</p>
@@ -52,18 +63,52 @@
     const btn = document.querySelector("[data-submit]");
     const card = document.querySelector("[data-card]");
     const date = document.querySelector("[data-date]");
+    const cvv = document.querySelector("[data-cvv]");
+    const exp = document.querySelector("[data-exp]");
 
     if (card.value.length < 8) {
         btn.disabled = true;
     }
 
+    cvv.addEventListener("change", () => {
+        if (/\d{4}-\d{4}-\d{4}-\d{4}/.test(card.value) && Date.parse(date.value) && cvv.value.length == 3 && /\d\/\d{2}/.test(exp.value)) {
+            btn.disabled = false;
+            card.classList.remove("border-danger");
+        }
+    })
+
+    exp.addEventListener("change", () => {
+        if (/\d{4}-\d{4}-\d{4}-\d{4}/.test(card.value) && Date.parse(date.value) && cvv.value.length == 3 && /\d\/\d{2}/.test(exp.value)) {
+            btn.disabled = false;
+            card.classList.remove("border-danger");
+        }
+    })
+
+
+    date.addEventListener("change", () => {
+        if (/\d{4}-\d{4}-\d{4}-\d{4}/.test(card.value) && Date.parse(date.value) && cvv.value.length == 3 && /\d\/\d{2}/.test(exp.value)) {
+            btn.disabled = false;
+            card.classList.remove("border-danger");
+        }
+    })
+
     card.addEventListener("keyup", () => {
+
+        if ([4, 9, 14].includes(card.value.length)) {
+            card.value = card.value + "-"
+
+        }
+
+        if (/\d{4}-\d{4}-\d{4}-\d{4}/.test(card.value)){
+            card.classList.remove("border-danger");
+        }
+
         if (card.value.length < 8) {
             btn.disabled = true;
             card.classList.add("border-danger");
-        } else if (card.value.length == 8 && /^\d+$/.test(card.value) && Date.parse(date.value)) {
+        }
+        if (/\d{4}-\d{4}-\d{4}-\d{4}/.test(card.value) && Date.parse(date.value) && cvv.value.length == 3 && /\d\/\d{2}/.test(exp.value)) {
             btn.disabled = false;
-            card.classList.remove("border-danger");
         }
     })
 

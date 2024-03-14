@@ -8,6 +8,9 @@ body
     padding: 0
     font-family: poppins
 
+label
+    color: #555555
+
 p, h1, h2
     margin: 0
     padding: 0
@@ -459,16 +462,18 @@ nav
                 background: rgb(180, 50, 30)
                 padding: 10px 20px
                 border-radius: 10px
-        .empty-cart
-            width: 100%
-            display: flex
-            flex-direction: column
-            align-items: center
-            p
-                font-size: 2em
-                color: #454545
-                font-weight: 600
-                text-transform: uppercase
+.empty-cart
+    width: 100%
+    display: flex
+    flex-direction: column
+    align-items: center
+    p
+        font-size: 2em
+        color: #454545
+        font-weight: 600
+        text-transform: uppercase
+    
+
                 
 .order-main-sect
     background: $theme
@@ -494,6 +499,42 @@ nav
             margin: 0.5em 0 
             color: #454545
             font-size: 1.2em
+
+.order-item
+    border: 1px solid rgba(0, 0, 0, .1)
+    padding: 10px 20px
+    border-radius: 5px
+    background: rgba(255, 255, 255, .1)
+    backdrop-filter: blur(2px)
+    display: flex
+    gap: 1em
+    @media (max-width:768px)
+        flex-direction: column
+    img
+        width: 200px
+        height: 200px
+        border: 1px solid rgba(0, 0, 0, .1)
+        border-radius: 2px
+        @media (max-width:768px)
+            height: auto
+            width:100%
+    .order-details
+        width: 100%
+        .order-name
+            font-size: 2em
+            color: #555555
+            font-weight: 500
+        p
+            color: #454545
+            font-weight: 500
+        .order-message
+            border: 1px solid rgba(0, 0, 0, .2)
+            margin: 10px 0
+            padding: 10px
+            border-radius: 10px
+            p
+                font-weight: 600
+                color: #a0317d
 
 footer
     background: #252525

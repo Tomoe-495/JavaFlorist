@@ -33,7 +33,8 @@
                 </div>
                 <div class="cart-detail">
                     <p class="cart-heading">@item.NAME</p>
-                    <p class="cart-price">Rs. @item.PRICE</p>
+                    <p class="cart-price">Unit Price: Rs. @item.PRICE</p>
+                    <p class="cart-price">Total Price: Rs. @{double total = item.PRICE * item.QUANTITY; @total;}</p>
                     <div class="form-group cart-message">
                         <label class="form-label">Select a message:</label>
                         <select class="form-select" name="MesId">

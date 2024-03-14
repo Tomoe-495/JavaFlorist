@@ -11,21 +11,21 @@ namespace JavaFlorist.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class ORDER
     {
         public int ORDERID { get; set; }
         public int CUSTID { get; set; }
         public int OCCASIONID { get; set; }
+        public int BOUQUETID { get; set; }
         public string ORDERNAME { get; set; }
         public string ORDERADDRESS { get; set; }
         public string ORDERPHONE { get; set; }
-        [Required(ErrorMessage ="Please select a date*")]
         public System.DateTime ORDERDATE { get; set; }
         public int QUANTITY { get; set; }
         public double TOTALPRICE { get; set; }
     
+        public virtual BOUQUET BOUQUET { get; set; }
         public virtual CUSTOMER CUSTOMER { get; set; }
         public virtual OCCASION OCCASION { get; set; }
     }

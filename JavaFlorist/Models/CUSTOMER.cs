@@ -11,8 +11,7 @@ namespace JavaFlorist.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class CUSTOMER
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -23,24 +22,12 @@ namespace JavaFlorist.Models
         }
     
         public int CUSTID { get; set; }
-        [Required(ErrorMessage ="Don't leave this field empty")]
         public string FNAME { get; set; }
-
-        [Required(ErrorMessage = "Don't leave this field empty")]
         public string LNAME { get; set; }
-
-        [Required(ErrorMessage = "Don't leave this field empty")]
-        [RegularExpression(@"^(?=.*[a-zA-Z0-9])(?=.*[^a-zA-Z0-9]).{8,}$", ErrorMessage ="The Password must have atleast 8 and AlphaNumeric and one non-AlphaNumeric character")]
         public string PASSWORD { get; set; }
-
-        [Required(ErrorMessage = "Don't leave this field empty")]
         public string DOB { get; set; }
         public string GENDER { get; set; }
-
-        [Required(ErrorMessage = "Don't leave this field empty")]
         public string PNO { get; set; }
-
-        [Required(ErrorMessage = "Don't leave this field empty")]
         public string ADDRESS { get; set; }
         public string ROLE { get; set; }
     

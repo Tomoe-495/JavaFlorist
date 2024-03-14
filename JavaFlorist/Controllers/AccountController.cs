@@ -14,7 +14,7 @@ namespace JavaFlorist.Controllers
     {
         // GET: Account
 
-        private JavaFlEntities _db = new JavaFlEntities();
+        private JavaFloristEntities _db = new JavaFloristEntities();
         private Encrypt _enc = new Encrypt();
         [AllowAnonymous]
         public ActionResult Login()
@@ -32,8 +32,9 @@ namespace JavaFlorist.Controllers
             {
                 var user = flag.Single();
                 FormsAuthentication.SetAuthCookie(user.FNAME, false);
-                TempData["username"] = user.FNAME;
-                TempData["id"] = user.CUSTID;
+                Session["username"] = user.FNAME;
+                Session["id"] = user.CUSTID;
+                Session["role"] = user.ROLE;
 
                 return RedirectToAction("Index", "Home");
             }
@@ -49,7 +50,7 @@ namespace JavaFlorist.Controllers
         public ActionResult Signout()
         {
             FormsAuthentication.SignOut();
-            TempData.Clear();
+            Session.Clear();
             return RedirectToAction("Index", "Home");
         }
 
@@ -67,6 +68,7 @@ namespace JavaFlorist.Controllers
             if(ModelState.IsValid)
             {
                 cust.PASSWORD = _enc.EnCrypt(cust.PASSWORD);
+                cust.ROLE = "Customer";
                 _db.CUSTOMERs.Add(cust);
                 _db.SaveChanges();
                 return RedirectToAction("Login");

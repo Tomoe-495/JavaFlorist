@@ -18,6 +18,7 @@ namespace JavaFlorist.Models
         public BOUQUET()
         {
             this.CARTs = new HashSet<CART>();
+            this.ORDERs = new HashSet<ORDER>();
         }
     
         public int BOUQUETID { get; set; }
@@ -28,5 +29,7 @@ namespace JavaFlorist.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CART> CARTs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ORDER> ORDERs { get; set; }
     }
 }
