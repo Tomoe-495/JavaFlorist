@@ -35,6 +35,7 @@ namespace JavaFlorist.Controllers
             return View(_boug);
         }
 
+        [Authorize(Roles ="Customer")]
         public ActionResult AddCart(int bouqId, int quant)
         {
             int userId = (int)Session["id"];
@@ -58,6 +59,7 @@ namespace JavaFlorist.Controllers
             return RedirectToAction("Shop", "Home");
         }
 
+        [Authorize(Roles ="Customer")]
         public ActionResult Cart()
         {
             int userId = (int)Session["id"];
@@ -90,6 +92,7 @@ namespace JavaFlorist.Controllers
              return View(Carts);
         }
 
+        [Authorize(Roles = "Customer")]
         public ActionResult DeleteCart(int id)
         {
             CART _cr = _db.CARTs.Find(id);
@@ -98,6 +101,7 @@ namespace JavaFlorist.Controllers
             return RedirectToAction("Cart");
         }
 
+        [Authorize(Roles = "Customer")]
         public ActionResult PlaceOrder(int id, int MesId)
         {
             var carts = _db.CARTs.Where(x => x.CARTID == id).Join(
@@ -125,6 +129,7 @@ namespace JavaFlorist.Controllers
             return View(_cr);
         }
 
+        [Authorize(Roles = "Customer")]
         [HttpPost]
         public ActionResult Order(ORDER ord, int id, int MesId)
         {
@@ -149,6 +154,7 @@ namespace JavaFlorist.Controllers
             return RedirectToAction("OrderList");
         }
 
+        [Authorize(Roles = "Customer")]
         public ActionResult OrderList()
         {
             int userId = (int)Session["id"];

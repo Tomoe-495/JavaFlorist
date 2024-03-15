@@ -1,6 +1,6 @@
 
 $theme: #FFF0E9
-    
+
 body
     width: 100vw
     overflow-x: hidden
@@ -481,6 +481,9 @@ nav
     background-image: url("../Resources/sect-bg.png")
     background-repeat: no-repeat
     background-position-x: right
+    display: flex
+    flex-direction: column
+    gap: 1em
 
     .form
         position: relative
@@ -501,7 +504,7 @@ nav
             font-size: 1.2em
 
 .order-item
-    border: 1px solid rgba(0, 0, 0, .1)
+    border: 1px solid rgba(0, 0, 0, .2)
     padding: 10px 20px
     border-radius: 5px
     background: rgba(255, 255, 255, .1)
@@ -535,6 +538,26 @@ nav
             p
                 font-weight: 600
                 color: #a0317d
+
+.flower-item
+    width: 100%
+    border: 1px solid rgba(0, 0, 0, .2)
+    border-radius: 5px
+    display: flex
+    gap: 1em
+    padding: 10px 20px
+    @media (max-width:768px)
+        flex-direction: column
+    img
+        width: 200px
+        height: 200px
+        border: 1px solid rgba(0, 0, 0, .1)
+        border-radius: 5px
+        @media (max-width:768px)
+            width: 100%
+            height: auto
+    .flower-details
+
 
 footer
     background: #252525

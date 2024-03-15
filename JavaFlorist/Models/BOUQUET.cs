@@ -11,7 +11,9 @@ namespace JavaFlorist.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+    using System.Web;
+
     public partial class BOUQUET
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -22,10 +24,15 @@ namespace JavaFlorist.Models
         }
     
         public int BOUQUETID { get; set; }
+        [Required(ErrorMessage ="Don't leave this field empty")]
+
         public string NAME { get; set; }
+        [Required(ErrorMessage = "Don't leave this field empty")]
         public double PRICE { get; set; }
+        [Required(ErrorMessage = "Don't leave this field empty")]
         public string DESCRIPTION { get; set; }
         public string IMG { get; set; }
+        public HttpPostedFileWrapper iqg { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CART> CARTs { get; set; }

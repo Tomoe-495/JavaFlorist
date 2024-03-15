@@ -16,6 +16,8 @@ namespace JavaFlorist.Controllers
 
         private JavaFloristEntities _db = new JavaFloristEntities();
         private Encrypt _enc = new Encrypt();
+        private SiteRoleProvider _srp = new SiteRoleProvider();
+
         [AllowAnonymous]
         public ActionResult Login()
         {
@@ -35,6 +37,8 @@ namespace JavaFlorist.Controllers
                 Session["username"] = user.FNAME;
                 Session["id"] = user.CUSTID;
                 Session["role"] = user.ROLE;
+
+                string [] roles = _srp.GetRolesForUser(user.FNAME);
 
                 return RedirectToAction("Index", "Home");
             }

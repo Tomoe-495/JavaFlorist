@@ -581,6 +581,9 @@ nav .ham.active .ham3 {
   background-image: url("../Resources/sect-bg.png");
   background-repeat: no-repeat;
   background-position-x: right;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
 }
 .order-main-sect .form {
   position: relative;
@@ -608,7 +611,7 @@ nav .ham.active .ham3 {
 }
 
 .order-item {
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.2);
   padding: 10px 20px;
   border-radius: 5px;
   background: rgba(255, 255, 255, 0.1);
@@ -657,6 +660,31 @@ nav .ham.active .ham3 {
   color: #a0317d;
 }
 
+.flower-item {
+  width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  display: flex;
+  gap: 1em;
+  padding: 10px 20px;
+}
+@media (max-width: 768px) {
+  .flower-item {
+    flex-direction: column;
+  }
+}
+.flower-item img {
+  width: 200px;
+  height: 200px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+@media (max-width: 768px) {
+  .flower-item img {
+    width: 100%;
+    height: auto;
+  }
+}
 footer {
   background: #252525;
   width: 100vw;
@@ -690,4 +718,4 @@ footer .footer-footer {
   padding: 15px 0;
   color: rgb(150, 150, 150);
   background: #050505;
-}/*# sourceMappingURL=Styles.css.map */
+}/*# sourceMappingURL=Style.css.map */

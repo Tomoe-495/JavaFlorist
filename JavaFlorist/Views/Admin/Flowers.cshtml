@@ -1,0 +1,31 @@
+﻿@model IEnumerable<JavaFlorist.Models.BOUQUET>
+@{
+    ViewBag.Title = "Flower";
+}
+
+<div class="cart-sect">
+
+    <div class="cart-upper-sect">
+        <p>Flowers</p>
+    </div>
+
+    <div class="order-main-sect">
+
+        @Html.ActionLink("Add new Bouquet", "Insert", "Admin")
+        @foreach(var item in Model)
+            {
+                <div class="flower-item">
+                    <img src="@item.IMG" />
+                    <div class="flower-detail">
+                        <h4>@item.NAME</h4>
+                        <p class="fs-5" >Rs. @item.PRICE</p>
+                        <hr />
+                        @Html.ActionLink("Edit", "Edit", "Admin", new { id = item.BOUQUETID }, new { @class="btn btn-success" })
+                        @Html.ActionLink("Delete", "Delete", "Admin", new {id=item.BOUQUETID}, new {@class="btn btn-danger"})
+                    </div>
+                </div>
+            }
+
+    </div>
+
+</div>
